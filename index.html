@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mendoza 2026 — Itinerario Familiar</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde:     #1D9E75;
+    --verde-osc: #085041;
+    --verde-med: #0F6E56;
+    --verde-clr: #E1F5EE;
+    --amber:     #EF9F27;
+    --amber-clr: #FAEEDA;
+    --amber-osc: #633806;
+    --rosa:      #D4537E;
+    --rosa-clr:  #FBEAF0;
+    --rosa-osc:  #72243E;
+    --azul:      #378ADD;
+    --azul-clr:  #E6F1FB;
+    --azul-osc:  #0C447C;
+    --coral:     #D85A30;
+    --coral-clr: #FAECE7;
+    --coral-osc: #993C1D;
+    --morado:    #534AB7;
+    --morado-clr:#EEEDFE;
+    --morado-osc:#3C3489;
+    --verde2:    #3B6D11;
+    --verde2-clr:#EAF3DE;
+    --rojo-clr:  #FCEBEB;
+    --rojo-osc:  #791F1F;
+    --rojo-med:  #A32D2D;
+    --gris-clr:  #F1EFE8;
+    --gris:      #5F5E5A;
+    --gris-borde:#D3D1C7;
+    --negro:     #1a1a1a;
+    --fondo:     #F5F3EE;
+    --choco:     #5C3317;
+    --choco-clr: #F5EDE6;
+    --choco-med: #8B4513;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--fondo);
+    color: var(--negro);
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--verde-osc);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(29,158,117,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    color: white;
+  }
+  .hero h1 em { font-style: italic; color: var(--amber); }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .hero-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .hero-cost {
+    display: inline-block;
+    background: rgba(239,159,39,0.15);
+    border: 1px solid rgba(239,159,39,0.35);
+    color: var(--amber);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 8px;
+  }
+
+  /* ── NAV ── */
+  .nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    border-bottom: 1px solid var(--gris-borde);
+    padding: 0 16px;
+  }
+  .nav {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    flex-shrink: 0;
+    padding: 14px 18px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--gris);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .nav-btn:hover { color: var(--negro); }
+  .nav-btn.active { color: var(--verde-osc); border-bottom-color: var(--verde); font-weight: 600; }
+
+  /* ── CONTENIDO ── */
+  .content { max-width: 900px; margin: 0 auto; padding: 28px 16px 60px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── DAY HEADER ── */
+  .day-header {
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    color: white;
+  }
+  .day-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .day-header p { font-size: 13px; opacity: 0.82; }
+  .dh-verde  { background: var(--verde-osc); }
+  .dh-verde2 { background: var(--verde-med); }
+  .dh-coral  { background: var(--coral); }
+  .dh-rosa   { background: var(--rosa-osc); }
+  .dh-azul   { background: var(--azul-osc); }
+  .dh-choco  { background: var(--choco); }
+
+  /* ── TURNO LABEL ── */
+  .turno {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 20px 0 12px;
+  }
+  .turno-manana  { background: var(--azul-clr);   color: var(--azul-osc); }
+  .turno-tarde   { background: var(--amber-clr);   color: var(--amber-osc); }
+  .turno-noche   { background: var(--morado-clr);  color: var(--morado-osc); }
+  .turno-regreso { background: var(--rojo-clr);    color: var(--rojo-osc); }
+
+  /* ── CARD ── */
+  .card {
+    background: white;
+    border: 1px solid var(--gris-borde);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .card-head {
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid var(--gris-borde);
+  }
+  .card-head h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--negro);
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+  .card-head p {
+    font-size: 12px;
+    color: var(--gris);
+    line-height: 1.4;
+  }
+  .badge-row {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .b-verde   { background: var(--verde-clr);  color: var(--verde-med); }
+  .b-amber   { background: var(--amber-clr);  color: var(--amber-osc); }
+  .b-rojo    { background: var(--rojo-clr);   color: var(--rojo-osc); }
+  .b-rosa    { background: var(--rosa-clr);   color: var(--rosa-osc); }
+  .b-azul    { background: var(--azul-clr);   color: var(--azul-osc); }
+  .b-morado  { background: var(--morado-clr); color: var(--morado-osc); }
+  .b-choco   { background: var(--choco-clr);  color: var(--choco); }
+
+  /* ── CARD BODY ── */
+  .card-body { padding: 4px 20px 12px; }
+  .detail-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 4px 8px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--gris-borde);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label { font-weight: 600; color: var(--gris); font-size: 11px; padding-top: 1px; }
+  .detail-val   { color: var(--negro); }
+
+  /* ── BOXES: tip / doc / boda / choco ── */
+  .box {
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 8px 20px 14px;
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
+  .box-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .box-tip   { background: var(--amber-clr);   color: var(--amber-osc); }
+  .box-doc   { background: var(--rojo-clr);    color: var(--rojo-med); }
+  .box-boda  { background: var(--rosa-clr);    color: var(--rosa-osc); }
+  .box-choco { background: var(--choco-clr);   color: var(--choco); }
+  .box-verde { background: var(--verde-clr);   color: var(--verde-med); }
+  .box ul { padding-left: 16px; }
+  .box ul li { margin-bottom: 3px; }
+
+  /* ── COSTO STRIP ── */
+  .costo-strip {
+    background: var(--verde-clr);
+    border-top: 1px solid rgba(29,158,117,0.2);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+  }
+  .costo-strip span:first-child { color: var(--verde-med); font-weight: 500; }
+  .costo-strip span:last-child  { color: var(--verde-osc); font-weight: 700; font-size: 13px; }
+
+  /* ── RESUMEN COSTOS ── */
+  .costos-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .costos-table th {
+    background: var(--verde-osc);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .costos-table td { padding: 9px 12px; border-bottom: 1px solid var(--gris-borde); vertical-align: top; }
+  .costos-table tr:nth-child(even) td { background: var(--gris-clr); }
+  .costos-table tr.total td { background: var(--verde-clr); font-weight: 700; color: var(--verde-osc); }
+  .costos-table td:last-child { font-weight: 600; text-align: right; }
+
+  /* ── VENUE GRID ── */
+  .venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 580px) { .venue-grid { grid-template-columns: 1fr; } }
+  .venue-card {
+    background: white;
+    border: 1px solid var(--gris-borde);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .venue-card-head {
+    padding: 12px 14px 10px;
+    color: white;
+  }
+  .venue-card-head h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .venue-card-head p  { font-size: 11px; opacity: 0.85; }
+  .venue-card-body { padding: 12px 14px; font-size: 12.5px; line-height: 1.6; }
+  .venue-card-body .dl { display: grid; grid-template-columns: 70px 1fr; gap: 3px 6px; }
+  .venue-card-body .dl dt { font-weight: 600; color: var(--gris); font-size: 11px; }
+
+  /* ── PROCESO BODA ── */
+  .proceso { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+  .paso {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: white;
+    border: 1px solid var(--gris-borde);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .paso-num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background: var(--verde-osc);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+  }
+  .paso-body h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .paso-body p  { font-size: 12px; color: var(--gris); line-height: 1.5; }
+
+  /* ── CHOCOLATERÍA ── */
+  .choco-banner {
+    background: var(--choco);
+    color: white;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .choco-banner .icon { font-size: 28px; }
+  .choco-banner h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .choco-banner p  { font-size: 12px; opacity: 0.85; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .detail-row { grid-template-columns: 80px 1fr; font-size: 12px; }
+    .card-head h3 { font-size: 14px; }
+    .box { margin: 8px 14px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Viaje familiar · 26–28 Junio 2026</div>
+  <h1>Mendoza <em>2026</em></h1>
+  <p class="hero-sub">3 familias · 6 adultos · 3 niños (7, 7 y 3 años) · 2 autos desde Santiago<br>Alojamiento: Neuquén 2852, Mendoza (5500)</p>
+  <div class="hero-pills">
+    <span class="pill">🗓 26–28 Junio</span>
+    <span class="pill">🏠 Neuquén 2852</span>
+    <span class="pill">🌋 Termas Cacheuta</span>
+    <span class="pill">🍷 Chacras de Coria</span>
+    <span class="pill">💒 Reconocimiento Boda Enero</span>
+  </div>
+  <div class="hero-cost">Costo estimado grupo: ~$454.000–621.000 CLP</div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <nav class="nav" role="navigation" aria-label="Navegación del itinerario">
+    <button class="nav-btn active" onclick="show('v1',this)">Vie · Mañana</button>
+    <button class="nav-btn" onclick="show('v2',this)">Vie · Tarde/Noche</button>
+    <button class="nav-btn" onclick="show('s1',this)">Sáb · Mañana</button>
+    <button class="nav-btn" onclick="show('s2',this)">Sáb · Tarde/Noche</button>
+    <button class="nav-btn" onclick="show('d1',this)">Dom · Mañana</button>
+    <button class="nav-btn" onclick="show('d2',this)">Dom · Almuerzo/Regreso</button>
+    <button class="nav-btn" onclick="show('boda',this)">💒 Boda Enero</button>
+    <button class="nav-btn" onclick="show('costos',this)">$ Costos</button>
+    <button class="nav-btn" onclick="show('docs',this)">📋 Documentación</button>
+  </nav>
+</div>
+
+<main class="content">
+
+<!-- ══════════════════════════════════════════════
+     VIERNES MAÑANA
+══════════════════════════════════════════════ -->
+<div id="v1" class="section active">
+  <div class="day-header dh-verde">
+    <h2>Viernes 26 de Junio — Mañana</h2>
+    <p>Día de viaje · Salida 07:00 hrs Santiago · Llegada estimada Mendoza ~14:30 hrs</p>
+  </div>
+
+  <div class="turno turno-manana">Mañana — En ruta</div>
+
+  <!-- Cruce -->
+  <div class="card">
+    <div class="card-head">
+      <h3>Paso Los Libertadores</h3>
+      <p>Trámite aduanero y migratorio · Llegada al paso ~09:30 hrs</p>
+      <div class="badge-row">
+        <span class="badge b-verde">Peaje ~$5.000 CLP x auto</span>
+        <span class="badge b-rojo">Documentación crítica</span>
+        <span class="badge b-azul">~1.5–2 hrs espera (junio = baja temporada)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Logística</span><span class="detail-val">2 autos · 9 personas. Bajar a todos del auto en aduana. Junio = baja temporada, menos cola que en verano.</span></div>
+      <div class="detail-row"><span class="detail-label">Ropa</span><span class="detail-val">Abrigo invernal (0–5°C en la cordillera). Guantes y chaqueta para los niños a mano, no en el maletero.</span></div>
+      <div class="detail-row"><span class="detail-label">Costo</span><span class="detail-val">Peaje ~$10.000 CLP (2 autos) + Seguros RC Argentina ~$30.000–50.000 CLP (2 autos, contratar online antes).</span></div>
+    </div>
+    <div class="box box-doc">
+      <div class="box-title">📋 Documentos obligatorios — todos</div>
+      <ul>
+        <li>Cédula de identidad vigente o pasaporte — las <strong>9 personas</strong> (niños con cédula propia)</li>
+        <li>Si niño viaja con <strong>un solo padre</strong>: autorización notarial del padre ausente (ante notaría chilena)</li>
+        <li>Permiso de circulación + SOAP + padrón de cada auto</li>
+        <li>Si el auto no es tuyo: carta notarial del dueño autorizando el viaje a Argentina</li>
+        <li>Seguro RC Argentina por auto — contratar online antes (MAPFRE o Zurich, 30% más barato que en el paso)</li>
+        <li><strong>NO ingresar:</strong> frutas, verduras, carnes frescas, lácteos, suelo, semillas</li>
+        <li>Sí pueden ingresar: alimentos procesados en envase cerrado (galletas, conservas, etc.)</li>
+      </ul>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Tip de ahorro</div>
+      Seguro RC Argentina online es <strong>30% más barato</strong> que comprarlo en el paso. Llevar pesos argentinos desde Chile (mejor tasa que cajeros ATM en Argentina).
+    </div>
+    <div class="costo-strip"><span>Peaje 2 autos + seguros RC Argentina</span><span>~$40.000–60.000 CLP</span></div>
+  </div>
+
+  <!-- Uspallata -->
+  <div class="card">
+    <div class="card-head">
+      <h3>Parada Almuerzo — Uspallata</h3>
+      <p>Pueblo andino km 1.144 Ruta 7 · a mitad del camino · parada de ~45 min</p>
+      <div class="badge-row">
+        <span class="badge b-amber">~$27.000–45.000 ARS grupo</span>
+        <span class="badge b-azul">Estacionamiento 2 autos</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Dónde</span><span class="detail-val">Parador El Rancho o Confitería del ACA. Amplios, baños cómodos, estacionamiento para 2 autos.</span></div>
+      <div class="detail-row"><span class="detail-label">Menú</span><span class="detail-val">Sándwiches, empanadas, minutas. Menú muy accesible para el grupo.</span></div>
+      <div class="detail-row"><span class="detail-label">Timing</span><span class="detail-val">Parar ~45 min. Suficiente para estirar piernas, ir al baño y almorzar rápido.</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Tip de ahorro</div>
+      Llevar sándwiches preparados desde Santiago para los niños — en Uspallata solo los adultos piden algo liviano. Ahorro estimado: ~$15.000 ARS vs pedir para todos.
+    </div>
+    <div class="costo-strip"><span>Almuerzo 9 personas Uspallata</span><span>~$27.000–45.000 ARS (~$22.000–37.000 CLP)</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     VIERNES TARDE / NOCHE
+══════════════════════════════════════════════ -->
+<div id="v2" class="section">
+  <div class="day-header dh-verde">
+    <h2>Viernes 26 de Junio — Tarde y Noche</h2>
+    <p>Llegada a la casa · Instalación · Asado de bienvenida · Neuquén 2852, Mendoza</p>
+  </div>
+
+  <div class="turno turno-tarde">Tarde — Llegada casa (~14:30–15:00 hrs)</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Check-in en Neuquén 2852 + Supermercado</h3>
+      <p>Primera parada al llegar: distribuir habitaciones y hacer el mercado para todo el finde</p>
+      <div class="badge-row">
+        <span class="badge b-verde">~$80.000–110.000 ARS mercado total finde</span>
+        <span class="badge b-azul">Una sola ida al super</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">La casa</span><span class="detail-val">Barrio residencial, estacionamiento para 2 autos. Distribuir habitaciones, conectar wifi, armar catres niños.</span></div>
+      <div class="detail-row"><span class="detail-label">Supermercado</span><span class="detail-val">Walmart / Carrefour / La Anónima en la zona. Ir mientras otros instalan habitaciones.</span></div>
+      <div class="detail-row"><span class="detail-label">Comprar</span><span class="detail-val">Carnes para 2 asados (vacío, costillas, chorizos), pan, bebidas, desayunos x3 días, snacks niños, frutas, agua.</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Tip</div>
+      Comprar carnes para el asado del viernes y la alternativa del domingo en una sola ida. Evita volver al super el domingo con el apuro del regreso.
+    </div>
+    <div class="costo-strip"><span>Supermercado total fin de semana (9 personas)</span><span>~$80.000–110.000 ARS (~$66.000–90.000 CLP)</span></div>
+  </div>
+
+  <div class="turno turno-noche">Noche — Asado de bienvenida en casa ✓ Recomendado</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Asado de Bienvenida en Casa — Neuquén 2852</h3>
+      <p>Sin traslado · niños libres · todos relajados después del viaje</p>
+      <div class="badge-row">
+        <span class="badge b-verde">~$30.000–40.000 ARS carnes</span>
+        <span class="badge b-verde">Mejor opción viernes</span>
+        <span class="badge b-azul">Niños libres sin horarios</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Menú</span><span class="detail-val">Vacío + costillas + chorizos + ensaladas. Choripán y salchichas parrilleras para los niños.</span></div>
+      <div class="detail-row"><span class="detail-label">Timing</span><span class="detail-val">Encender parilla ~18:00, comer ~20:00, niños durmiendo a las 21:00.</span></div>
+      <div class="detail-row"><span class="detail-label">Por qué</span><span class="detail-val">Llegando a las 15:00 cansados de 8+ hrs de viaje, buscar restaurante para 9 con niños es innecesario.</span></div>
+    </div>
+    <div class="box box-verde">
+      <div class="box-title">📊 Comparativa honesta</div>
+      Asado en casa: <strong>~$35.000 ARS</strong> · Restaurante para 9: <strong>~$80.000–120.000 ARS</strong><br>
+      Diferencia: <strong>~$50.000 ARS a favor del asado</strong> + sin traslado + niños cómodos.
+    </div>
+    <div class="box box-boda">
+      <div class="box-title">💒 Reconocimiento boda (de pasada)</div>
+      Si pasan por el centro al ir al super, pueden ver de lejos la <strong>Basílica San Francisco</strong> (a 2 cuadras de la peatonal). Anotar el entorno, fachada y acceso para invitados.
+    </div>
+    <div class="costo-strip"><span>Asado bienvenida 9 personas</span><span>~$30.000–40.000 ARS (~$25.000–33.000 CLP)</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SÁBADO MAÑANA
+══════════════════════════════════════════════ -->
+<div id="s1" class="section">
+  <div class="day-header dh-verde2">
+    <h2>Sábado 27 de Junio — Mañana</h2>
+    <p>Termas Cacheuta · Salida 08:30 desde casa · 38 km, ~40 min desde Neuquén 2852</p>
+  </div>
+
+  <div class="turno turno-manana">Mañana — Termas Cacheuta (08:30 salida)</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Termas Cacheuta — Plan Familiar Todo el Día</h3>
+      <p>Ruta 82 km 38 · Reserva online obligatoria en termas-cacheuta.com</p>
+      <div class="badge-row">
+        <span class="badge b-verde">Adulto: $18.000–22.000 ARS</span>
+        <span class="badge b-verde">Menor 3–11 años: $9.000–11.000 ARS</span>
+        <span class="badge b-verde">Menor de 3 años: GRATIS</span>
+        <span class="badge b-amber">Promo 4x3 vigente</span>
+        <span class="badge b-rojo">Reserva online obligatoria</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Costo total</span><span class="detail-val">6 adultos con promo 4x3 (pagan 5): ~$90.000–110.000 ARS · 3 niños (7, 7, 3 años): ~$18.000–22.000 ARS. <strong>Total: ~$108.000–132.000 ARS</strong></span></div>
+      <div class="detail-row"><span class="detail-label">Horario</span><span class="detail-val">Llegar 09:30 · Salir ~13:30–14:00 para tener toda la tarde libre. Abre 09:00 / Cierra 18:00.</span></div>
+      <div class="detail-row"><span class="detail-label">Incluye</span><span class="detail-val">11 piscinas termales a distintas temperaturas, piscina cubierta calefaccionada, área kids con toboganes, vestuarios y casilleros.</span></div>
+      <div class="detail-row"><span class="detail-label">Niños</span><span class="detail-val">Área kids apta para el de 3 años. Piscinas de baja temperatura específicas para ellos. El menor de 3 entra GRATIS.</span></div>
+      <div class="detail-row"><span class="detail-label">Ropa</span><span class="detail-val">Traje de baño, ojotas/sandalias, toalla grande, protector solar, ropa abrigada para la ida/vuelta, pañales extra, bolsa para ropa mojada.</span></div>
+    </div>
+    <div class="box box-doc">
+      <div class="box-title">📋 Qué llevar para ingresar</div>
+      <ul>
+        <li>Confirmación de reserva (email o captura de pantalla)</li>
+        <li>DNI o pasaporte de cada visitante (piden al ingreso)</li>
+        <li>Efectivo o tarjeta para consumiciones extras (bar/snacks)</li>
+        <li>Candado propio para casilleros (ahorra ~$1.500 ARS por casillero)</li>
+        <li><strong>Llevar almuerzo en cooler</strong> (bolso térmico con comidas frías: está permitido)</li>
+      </ul>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Tips de ahorro — Termas</div>
+      <ul>
+        <li><strong>Promo 4x3:</strong> por cada 3 entradas adulto, la 4ta gratis. Con 6 adultos pagan 5 (~$20.000 ARS menos). Verificar vigencia al reservar.</li>
+        <li><strong>Cooler con almuerzo:</strong> el restaurante interno duplica el gasto del día (~$50.000 ARS extra para el grupo). Llevar sandwiches, frutas y bebidas.</li>
+        <li>Niños menores de 3 años gratis — confirmarlo al reservar online.</li>
+      </ul>
+    </div>
+    <div class="box box-boda">
+      <div class="box-title">💒 Reconocimiento boda — preguntar al llegar</div>
+      Cacheuta tiene el salón <strong>"El Vergel"</strong> para bodas · Vista al río Mendoza · Capacidad ~120 personas · Boda con acceso a termas para invitados = propuesta única en Mendoza · <strong>Desde USD 2.500</strong>. Preguntar por el coordinador de eventos al llegar.
+    </div>
+    <div class="costo-strip"><span>Total termas 9 personas (con promo 4x3)</span><span>~$108.000–132.000 ARS (~$88.000–108.000 CLP)</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SÁBADO TARDE / NOCHE
+══════════════════════════════════════════════ -->
+<div id="s2" class="section">
+  <div class="day-header dh-verde2">
+    <h2>Sábado 27 de Junio — Tarde y Noche</h2>
+    <p>Chocolatería · Chacras de Coria · Bodega · Cena La Marchigiana</p>
+  </div>
+
+  <div class="turno turno-tarde">Tarde — Salida termas ~13:30–14:00</div>
+
+  <!-- CHOCOLATERÍA -->
+  <div class="card">
+    <div class="card-head" style="background: var(--choco-clr); border-bottom: 1px solid rgba(92,51,23,0.15);">
+      <h3 style="color: var(--choco);">☕ Chocolatería Abuela Goye — Parada obligatoria</h3>
+      <p style="color: var(--choco-med);">Av. San Martín · Mendoza centro · de camino de Cacheuta a Chacras</p>
+      <div class="badge-row">
+        <span class="badge b-choco">~$3.000–6.000 ARS por persona</span>
+        <span class="badge b-azul">Niños la amarán</span>
+        <span class="badge b-choco">30–45 min parada</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Por qué</span><span class="detail-val">La chocolatería más famosa de Mendoza. Chocolates artesanales, bombones, fondue y chocolates calientes. Los niños (y adultos) salen felices.</span></div>
+      <div class="detail-row"><span class="detail-label">Qué pedir</span><span class="detail-val">Chocolate caliente para los niños, tabla de degustación de bombones para los adultos, trufas para llevar como souvenir.</span></div>
+      <div class="detail-row"><span class="detail-label">Timing</span><span class="detail-val">Parada de camino entre Cacheuta y Chacras de Coria. Perfecta transición entre termas y bodega.</span></div>
+      <div class="detail-row"><span class="detail-label">Llevar</span><span class="detail-val">Efectivo o tarjeta. Los chocolates para llevar son ideales como souvenir para dejar en casa del viaje.</span></div>
+    </div>
+    <div class="box box-choco">
+      <div class="box-title">🍫 Tip chocolatería</div>
+      Pedir una tabla de degustación para compartir en la mesa en vez de individual para cada uno — más económico y más divertido. Los niños pueden pedir solo el chocolate caliente (~$2.000 ARS).
+    </div>
+    <div class="costo-strip"><span>Chocolatería 9 personas</span><span>~$27.000–54.000 ARS (~$22.000–44.000 CLP)</span></div>
+  </div>
+
+  <!-- Chacras -->
+  <div class="card">
+    <div class="card-head">
+      <h3>Chacras de Coria — Paseo y Tour en Bodega</h3>
+      <p>Pueblo viñatero a 16 km del centro · plazoletas, bodegas y arte</p>
+      <div class="badge-row">
+        <span class="badge b-morado">Tour bodega: $8.000–12.000 ARS x adulto</span>
+        <span class="badge b-azul">Jardines para niños</span>
+        <span class="badge b-rojo">Reserva previa</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Qué hacer</span><span class="detail-val">Pasear por la plaza (niños corren libremente), tour en Bodega Ruca Malén o Achaval Ferrer (45 min). Un adulto rota con los niños en el jardín.</span></div>
+      <div class="detail-row"><span class="detail-label">Costo bodega</span><span class="detail-val">6 adultos × $10.000 ARS = ~$60.000 ARS (~$49.000 CLP). Niños no pagan, quedan en el jardín.</span></div>
+      <div class="detail-row"><span class="detail-label">Ropa</span><span class="detail-val">Ropa cómoda de día. Calzado cerrado (suelo de bodega puede estar frío y húmedo en junio).</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Tip de ahorro</div>
+      Tour básico sin maridaje (~$8.000 ARS) vs tour con almuerzo (~$35.000 ARS). Hacer el básico y cenar aparte en La Marchigiana. Ahorro: ~$27.000 ARS por persona.
+    </div>
+    <div class="box box-boda">
+      <div class="box-title">💒 Reconocimiento boda</div>
+      <strong>Bodega Ruca Malén:</strong> bodas en viñedo para 80–200 personas · desde USD 3.500 · preguntar por coordinador en la visita.<br><br>
+      <strong>Parroquia N.S. de Loreto</strong> (a 3 cuadras de la plaza): iglesia colonial rodeada de viñedos, perfecta para matrimonio religioso en entorno viñatero. Ver disponibilidad enero al pasar.
+    </div>
+    <div class="costo-strip"><span>Tour bodega 6 adultos</span><span>~$60.000 ARS (~$49.000 CLP)</span></div>
+  </div>
+
+  <!-- Parroquia -->
+  <div class="card">
+    <div class="card-head">
+      <h3>Parroquia N. S. de Loreto — Chacras de Coria</h3>
+      <p>Visita rápida 20 min · Iglesia colonial en entorno viñatero · A 3 cuadras de la plaza</p>
+      <div class="badge-row">
+        <span class="badge b-verde">Gratuito</span>
+        <span class="badge b-rosa">Reconocimiento boda</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Por qué</span><span class="detail-val">Iglesia colonial rodeada de árboles y viñedos. En enero la vid está en floración. Fotos de novios espectaculares.</span></div>
+      <div class="detail-row"><span class="detail-label">Preguntar</span><span class="detail-val">Disponibilidad enero · requisitos novios chilenos · honorario estimado · si aceptan carta de párroco chileno directamente.</span></div>
+    </div>
+  </div>
+
+  <div class="turno turno-noche">Noche — Cena fuera ✓ El único día que vale la pena salir</div>
+
+  <!-- Marchigiana -->
+  <div class="card">
+    <div class="card-head">
+      <h3>Cena — La Marchigiana</h3>
+      <p>25 de Mayo 1222, Mendoza centro · Pastas artesanales desde 1950 · <strong>Reserva obligatoria: +54 261 423-0751</strong></p>
+      <div class="badge-row">
+        <span class="badge b-amber">$5.000–9.000 ARS x persona</span>
+        <span class="badge b-azul">Sillas altas disponibles</span>
+        <span class="badge b-rojo">Reserva obligatoria sábado noche</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Costo total</span><span class="detail-val">9 personas × $7.000 ARS promedio = ~$63.000 ARS. Con vino de la casa: +$15.000–20.000 ARS. <strong>Total: ~$78.000–83.000 ARS</strong></span></div>
+      <div class="detail-row"><span class="detail-label">Por qué</span><span class="detail-val">Salón enorme (puede sentar 9 juntos), pastas frescas artesanales, menú amplio para niños. Acostumbrado a grupos grandes.</span></div>
+      <div class="detail-row"><span class="detail-label">Reserva</span><span class="detail-val">Llamar el viernes o sábado temprano. Pedir mesa 9 personas, sábado noche. Confirmar silla alta para el niño de 3 años.</span></div>
+      <div class="detail-row"><span class="detail-label">Pedido</span><span class="detail-val">Pedir 6–7 platos para compartir (porciones argentinas enormes). Vino de la casa: excelente y mucho más barato que la carta.</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Tip de ahorro</div>
+      Para los niños: un plato de fideos con tuco entre dos (la ración es enorme). Vino de la casa vs carta: diferencia de ~$10.000 ARS por botella. Evitar las entradas — las pastas de fondo ya son abundantes.
+    </div>
+    <div class="costo-strip"><span>Cena La Marchigiana 9 personas (con vino)</span><span>~$78.000–83.000 ARS (~$64.000–68.000 CLP)</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     DOMINGO MAÑANA
+══════════════════════════════════════════════ -->
+<div id="d1" class="section">
+  <div class="day-header dh-coral">
+    <h2>Domingo 28 de Junio — Mañana</h2>
+    <p>Basílica San Francisco · Parque General San Martín · 09:00–12:30 hrs sin apuros</p>
+  </div>
+
+  <div class="turno turno-manana">Mañana (09:00–12:30) — Relajado y sin prisa</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Basílica de San Francisco + Peatonal Sarmiento</h3>
+      <p>Necochea esq. Ituzaingó · Mendoza centro · 15 min desde casa en auto</p>
+      <div class="badge-row">
+        <span class="badge b-verde">Gratuito</span>
+        <span class="badge b-azul">Paseo con coche del niño de 3 años</span>
+        <span class="badge b-rosa">Reconocimiento boda</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Qué hacer</span><span class="detail-val">Visita rápida a la basílica (20 min), luego café tranquilo en un bar de la peatonal Sarmiento. Los niños en coche o caminando.</span></div>
+      <div class="detail-row"><span class="detail-label">Café</span><span class="detail-val">~$2.000–3.500 ARS x persona. Total grupo: ~$18.000–32.000 ARS (~$15.000–26.000 CLP).</span></div>
+      <div class="detail-row"><span class="detail-label">Ropa</span><span class="detail-val">Ropa cómoda de día. En junio el centro de día está a ~10–15°C. Chaqueta liviana suficiente.</span></div>
+    </div>
+    <div class="box box-boda">
+      <div class="box-title">💒 Para la boda — ver en esta visita</div>
+      Basílica San Francisco: una de las más elegantes de Mendoza para matrimonio religioso. Nave principal: ~200 personas. <strong>Ver:</strong> fachada, acceso lateral para novia, estacionamiento cercano para invitados, iluminación interior. <strong>Preguntar en sacristía:</strong> agenda enero y requisitos actualizados para novios chilenos.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Parque General San Martín</h3>
+      <p>El parque más grande de Mendoza · Entrada gratuita · ~1.5–2 hrs</p>
+      <div class="badge-row">
+        <span class="badge b-verde">Entrada gratuita</span>
+        <span class="badge b-verde">Botes: ~$4.000–6.000 ARS x bote</span>
+        <span class="badge b-azul">Ideal para las 3 edades</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Qué hacer</span><span class="detail-val">Paseo en bote en el lago (caben 4–5 por bote), área de juegos infantiles (los de 7 años van solos, al de 3 lo llevan en bote), Zoo municipal gratuito.</span></div>
+      <div class="detail-row"><span class="detail-label">Duración</span><span class="detail-val">1.5–2 horas máximo. Salir a las 11:30 para llegar a casa y preparar el almuerzo a tiempo.</span></div>
+      <div class="detail-row"><span class="detail-label">Costo</span><span class="detail-val">2 botes × $5.000 ARS = $10.000 ARS. Zoo: gratuito. Total: ~$10.000 ARS (~$8.000 CLP).</span></div>
+    </div>
+    <div class="box box-boda">
+      <div class="box-title">💒 Reconocimiento boda — El Rosedal</div>
+      El <strong>Rosedal del Parque San Martín</strong> es el lugar de sesión de fotos de novios más solicitado de Mendoza. En enero está en plena floración. Ver también salones municipales para eventos (consultar en la administración del parque).
+    </div>
+    <div class="costo-strip"><span>Parque San Martín (botes + zoo)</span><span>~$10.000 ARS (~$8.000 CLP)</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     DOMINGO ALMUERZO + REGRESO
+══════════════════════════════════════════════ -->
+<div id="d2" class="section">
+  <div class="day-header dh-coral">
+    <h2>Domingo 28 de Junio — Almuerzo y Regreso</h2>
+    <p>Almuerzo 12:30 · Salida Santiago 15:00–15:30 hrs · Llegada ~21:00–22:00 hrs</p>
+  </div>
+
+  <div class="turno turno-tarde">Mediodía — Almuerzo de despedida (12:30–14:30)</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Opción A — Il Postino (pasta fresca) ✓ Recomendado</h3>
+      <p>Centro Mendoza · pasta artesanal mendocina · salón cálido · servicio eficiente</p>
+      <div class="badge-row">
+        <span class="badge b-morado">~$5.000–8.000 ARS x persona</span>
+        <span class="badge b-azul">Reservar el sábado noche</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Por qué</span><span class="detail-val">Pasta fresca artesanal mendocina, salón cálido y amplio. Servicio eficiente — importante para salir a tiempo a las 15:00.</span></div>
+      <div class="detail-row"><span class="detail-label">Pedido</span><span class="detail-val">Tallarines, ñoquis, ravioles para compartir. 6–7 fuentes para la mesa son más que suficientes para 9 personas.</span></div>
+      <div class="detail-row"><span class="detail-label">Niños</span><span class="detail-val">Fideos con manteca o tuco — platos simples, rápidos y económicos para los niños.</span></div>
+      <div class="detail-row"><span class="detail-label">Reserva</span><span class="detail-val">Llamar el sábado noche para reservar mesa 9 pax a las 12:30 del domingo.</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Tip</div>
+      Pasta para compartir = más económico que platos individuales. Misma lógica que La Marchigiana del sábado.
+    </div>
+    <div class="costo-strip"><span>Almuerzo Il Postino 9 personas</span><span>~$65.000–80.000 ARS (~$53.000–65.000 CLP)</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Opción B — Pizzería Montecatini</h3>
+      <p>Centro Mendoza · pizzas a la piedra · servicio muy rápido · ideal si el tiempo apremia</p>
+      <div class="badge-row">
+        <span class="badge b-amber">~$3.500–6.000 ARS x persona</span>
+        <span class="badge b-azul">La más económica del finde</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Por qué</span><span class="detail-val">Servicio más rápido del finde (crítico con salida a las 15:00). Pizzas a la piedra enormes para compartir.</span></div>
+      <div class="detail-row"><span class="detail-label">Pedido</span><span class="detail-val">4–5 pizzas grandes para 9 personas = más que suficiente. Más económico que platos individuales.</span></div>
+      <div class="detail-row"><span class="detail-label">Timing</span><span class="detail-val">Llegar 12:30, comer y pagar antes de las 14:00. Checkout casa y salida 15:00–15:30.</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Ahorro</div>
+      4 pizzas grandes para 9 = sobra. Evitar menú individual: ahorra ~$20.000 ARS. La opción más económica de salir a comer en todo el fin de semana.
+    </div>
+    <div class="costo-strip"><span>Pizzería Montecatini 9 personas</span><span>~$45.000–65.000 ARS (~$37.000–53.000 CLP)</span></div>
+  </div>
+
+  <div class="turno turno-regreso">Regreso — Salida 15:00–15:30 hrs · Llegar con luz de día</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Regreso a Santiago</h3>
+      <p>Neuquén 2852 → Ruta 7 → Paso Los Libertadores → Ruta 60 → Santiago · ~6–7 hrs total</p>
+      <div class="badge-row">
+        <span class="badge b-verde">Cruzar con luz de día ✓</span>
+        <span class="badge b-azul">Llegada ~21:00–22:00 hrs</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Ruta</span><span class="detail-val">Neuquén 2852 → Ruta 40 N → Ruta 7 → Paso Los Libertadores → Ruta 60 → Santiago.</span></div>
+      <div class="detail-row"><span class="detail-label">Regreso</span><span class="detail-val">El trámite de regreso suele ser más rápido que la entrada. Cruzar con luz de día garantizado saliendo a las 15:00.</span></div>
+      <div class="detail-row"><span class="detail-label">En ruta</span><span class="detail-val">Llevar snacks, juegos y termo con agua caliente para los niños. Parada opcional en Uspallata si es necesario.</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Tips regreso</div>
+      <ul>
+        <li><strong>Cargar bencina en Mendoza</strong> antes de salir — más barato que en la cordillera.</li>
+        <li>Llevar bolsas para la basura de los snacks del viaje.</li>
+        <li>Organizar los autos antes del almuerzo para salir sin demoras a las 15:00.</li>
+        <li>Llenar el termo con agua caliente para mate/té en ruta.</li>
+      </ul>
+    </div>
+    <div class="costo-strip"><span>Combustible regreso 2 autos</span><span>~$40.000–60.000 CLP</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     BODA ENERO
+══════════════════════════════════════════════ -->
+<div id="boda" class="section">
+  <div class="day-header dh-rosa">
+    <h2>Boda Enero en Mendoza — Venues y Documentación</h2>
+    <p>Reconocimiento durante el viaje 26–28 junio · Visitar cada venue en el momento indicado</p>
+  </div>
+
+  <p style="font-size:13px;color:var(--gris);margin-bottom:20px;line-height:1.6;">
+    El viaje del 26–28 de junio es la oportunidad perfecta para visitar los venues de forma natural durante el itinerario. Ninguna visita requiere desvíos: cada iglesia y venue aparece en el camino de las actividades del fin de semana.
+  </p>
+
+  <!-- NOTA PRECIOS -->
+  <div class="box box-tip" style="border-radius:10px;padding:12px 16px;margin-bottom:20px;">
+    <div class="box-title">💱 Sobre los precios</div>
+    Precios en ARS actualizados a referencia 2025. Tipo de cambio referencial: <strong>1 ARS ≈ 0,82 CLP</strong> (puede variar). Los precios en USD se convierten a tasa de cambio blue aproximada. <strong>Confirmar siempre directamente con cada venue antes de reservar.</strong>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:600;color:var(--rosa-osc);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.05em;">Iglesias para matrimonio religioso — 7 opciones</h3>
+
+  <!-- DOC COMUN -->
+  <div class="box box-doc" style="border-radius:10px;padding:12px 16px;margin-bottom:16px;">
+    <div class="box-title">📋 Documentos comunes para TODAS las iglesias (novios chilenos)</div>
+    <ul>
+      <li>Partida de bautismo reciente (<strong>no mayor a 6 meses</strong> al momento de la boda)</li>
+      <li>Certificado de confirmación</li>
+      <li>Libertad de estado eclesiástica (de la parroquia donde fueron bautizados en Chile)</li>
+      <li>Curso prematrimonial completado — certificado de la parroquia en Chile</li>
+      <li>Todo <strong>apostillado</strong> en Ministerio RR.EE. Chile (apostilla.minrel.gob.cl · ~$9.000 CLP/doc · 1–5 días hábiles)</li>
+      <li>Carta de presentación del párroco chileno a la diócesis de Mendoza</li>
+      <li>El <strong>matrimonio civil argentino</strong> debe celebrarse ANTES o el mismo día que el religioso</li>
+      <li>Reservar con <strong>mínimo 6–12 meses</strong> de anticipación (enero = temporada altísima)</li>
+    </ul>
+  </div>
+
+  <div class="venue-grid">
+    <!-- 1 San Francisco -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--rosa-osc);">
+        <h4>Basílica de San Francisco</h4>
+        <p>Av. España 1418, Mendoza centro · Tel: 261 425-6606 · VER el domingo mañana</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>~200 personas · 3 naves</dd>
+          <dt>Estilo</dt><dd>Monumento Nacional desde 1925. Neoclásica, imponente. Guarda reliquias del Gral. San Martín.</dd>
+          <dt>Ideal para</dt><dd>Bodas formales y concurridas con historia</dd>
+          <dt>Honorario</dt><dd>~$80.000–150.000 ARS <span style="color:var(--verde-med);font-weight:600;">(~$66.000–123.000 CLP)</span></dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- 2 Catedral Loreto -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--rosa);">
+        <h4>Catedral Nuestra Señora de Loreto</h4>
+        <p>José F. Moreno 1316, Mendoza centro · Tel: 261 425-5654</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>~150 personas · planta 3 naves pequeñas</dd>
+          <dt>Estilo</dt><dd>Una de las más antiguas de Mendoza, con crónicas desde 1665. Vitrales franceses del primer obispo.</dd>
+          <dt>Ideal para</dt><dd>Bodas sencillas y recogidas con historia colonial</dd>
+          <dt>Honorario</dt><dd>~$60.000–100.000 ARS <span style="color:var(--verde-med);font-weight:600;">(~$49.000–82.000 CLP)</span></dd>
+        </dl>
+        <div class="box box-boda" style="margin:10px 0 0;">
+          <div class="box-title">💒 Nota</div>
+          Frente a Plaza Sarmiento — entorno urbano histórico, ideal para fotos en la plaza posterior a la ceremonia.
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Loreto Chacras -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--morado);">
+        <h4>Parroquia N. S. de Loreto — Chacras de Coria</h4>
+        <p>Mazzolari 1, Chacras de Coria · Tel: 261 496-0258 · VER el sábado tarde</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>~80–120 personas · estilo íntimo</dd>
+          <dt>Estilo</dt><dd>Neocolonial 1935, arquitecto Daniel Ramos Correas. Patrimonio Arquitectónico de Chacras. Rodeada de viñedos.</dd>
+          <dt>Ideal para</dt><dd>Bodas íntimas en entorno viñatero · máx. 50–80 invitados</dd>
+          <dt>Honorario</dt><dd>~$60.000–120.000 ARS <span style="color:var(--verde-med);font-weight:600;">(~$49.000–98.000 CLP)</span></dd>
+        </dl>
+        <div class="box box-boda" style="margin:10px 0 0;">
+          <div class="box-title">💒 Combinación perfecta</div>
+          Iglesia → Bodega Ruca Malén (3 km). La pareja más fotografiada de Mendoza para bodas en enero.
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 San José de la Montaña -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--verde-osc);">
+        <h4>Parroquia San José de la Montaña ⭐ Joya nueva</h4>
+        <p>Valle del Sol, Potrerillos, Luján de Cuyo · inaugurada 2021</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>~100 personas</dd>
+          <dt>Estilo</dt><dd>Moderna, sobre un cerro en el Valle del Sol. Grandes ventanales con vista panorámica al Cordón del Plata. Viral en TikTok y redes por su belleza.</dd>
+          <dt>Ideal para</dt><dd>Bodas únicas con naturaleza cordillerana. La iglesia más cinematográfica de Mendoza.</dd>
+          <dt>Honorario</dt><dd>~$80.000–120.000 ARS <span style="color:var(--verde-med);font-weight:600;">(~$66.000–98.000 CLP)</span></dd>
+        </dl>
+        <div class="box box-verde" style="margin:10px 0 0;">
+          <div class="box-title">✨ Por qué es especial</div>
+          Está cerca de Potrerillos (camino a Cacheuta). Pueden pasarla a ver el sábado de ida a las termas. Las fotos con la cordillera de fondo son inigualables.
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 La Merced -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--coral);">
+        <h4>Templo Nuestra Señora de la Merced</h4>
+        <p>Montecaseros 1647, Mendoza capital · Tel: 261 425-7905</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>~250 personas · 3 naves</dd>
+          <dt>Estilo</dt><dd>Neorenacentista con capiteles corintios, edificio de 1909. La Virgen del Terremoto (imagen que sobrevivió al sismo de 1861). Para bodas muy concurridas.</dd>
+          <dt>Ideal para</dt><dd>Bodas grandes con mucho invitados y estilo clásico</dd>
+          <dt>Honorario</dt><dd>~$70.000–130.000 ARS <span style="color:var(--verde-med);font-weight:600;">(~$57.000–107.000 CLP)</span></dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- 6 San Vicente Ferrer -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--azul-osc);">
+        <h4>Parroquia San Vicente Ferrer</h4>
+        <p>Gral. Lavalle 60, Godoy Cruz · Tel: 261 422-1037</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>~180 personas · 3 naves</dd>
+          <dt>Estilo</dt><dd>Única iglesia neogótica de Mendoza. Fachada en piedra París estilo París fin s. XIX. Muy ligada a la historia de Godoy Cruz.</dd>
+          <dt>Ideal para</dt><dd>Bodas tradicionales con estética europea única</dd>
+          <dt>Honorario</dt><dd>~$70.000–120.000 ARS <span style="color:var(--verde-med);font-weight:600;">(~$57.000–98.000 CLP)</span></dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- 7 Carrodilla -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--choco);">
+        <h4>Iglesia de la Carrodilla</h4>
+        <p>San Martín y La Carrodilla, Luján de Cuyo · Tel: 261 436-1667</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>~80–100 personas · estilo colonial íntimo</dd>
+          <dt>Estilo</dt><dd>Colonial del altiplano. Patrona de los viñedos mendocinos. En plena Ruta del Vino. Frente al Calvario de Carrodilla, lugar de peregrinación.</dd>
+          <dt>Ideal para</dt><dd>Bodas cálidas e íntimas · combinable con bodega vecina</dd>
+          <dt>Honorario</dt><dd>~$50.000–90.000 ARS <span style="color:var(--verde-med);font-weight:600;">(~$41.000–74.000 CLP)</span></dd>
+        </dl>
+        <div class="box box-choco" style="margin:10px 0 0;">
+          <div class="box-title">🍇 Dato</div>
+          Está en la Ruta del Vino de Luján de Cuyo, a minutos de varias bodegas. Ideal para boda íntima de ~50 personas.
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 María Auxiliadora -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--verde2);">
+        <h4>Santuario María Auxiliadora</h4>
+        <p>Ruta Provincial 50 n°6722, Rodeo del Medio, Maipú · Tel: 261 495-1084</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>~300 personas · iglesia grande</dd>
+          <dt>Estilo</dt><dd>Arquitectura románica-lombarda, obra de Ernesto Vespignani (1916). Órgano alemán. Obra salesiana y pastoral juvenil.</dd>
+          <dt>Ideal para</dt><dd>Bodas grandes con sonido de órgano en vivo</dd>
+          <dt>Honorario</dt><dd>~$80.000–140.000 ARS <span style="color:var(--verde-med);font-weight:600;">(~$66.000–115.000 CLP)</span></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:600;color:var(--morado-osc);margin:28px 0 12px;text-transform:uppercase;letter-spacing:0.05em;">Venues para recepción — Bodegas, casonas y quintas (~50 personas)</h3>
+
+  <div class="venue-grid">
+    <!-- Ruca Malén -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--morado);">
+        <h4>Bodega Ruca Malén — Boda en viñedo</h4>
+        <p>Ruta 7 km 1059, Luján de Cuyo · VER el sábado en el tour</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>80–200 personas</dd>
+          <dt>Formato</dt><dd>Ceremonia entre viñas al aire libre + recepción en salón climatizado</dd>
+          <dt>En enero</dt><dd>Vid verde, racimos en formación. Fotos de revista.</dd>
+          <dt>Precio</dt><dd>~$3.500.000–5.000.000 ARS paquete base (50 pax) <span style="color:var(--verde-med);font-weight:600;">(~$2.870.000–4.100.000 CLP)</span></dd>
+          <dt>Precio x pax</dt><dd>~$70.000–100.000 ARS/persona <span style="color:var(--verde-med);font-weight:600;">(~$57.000–82.000 CLP)</span></dd>
+        </dl>
+        <div class="box box-doc" style="margin:10px 0 0;">
+          <div class="box-title">📋 Preguntar en la visita del sábado</div>
+          <ul>
+            <li>Paquetes y precios enero actualizados</li>
+            <li>¿Catering exclusivo o permiten externo?</li>
+            <li>¿Vinos de la bodega incluidos?</li>
+            <li>Contacto del coordinador de eventos</li>
+            <li>¿Alojamiento para los novios esa noche?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Termas Cacheuta -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--verde-osc);">
+        <h4>Termas Cacheuta — Salón El Vergel</h4>
+        <p>Ruta 82 km 38 · VER el sábado al llegar a las termas</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>Hasta 120 personas sentadas</dd>
+          <dt>Diferencial</dt><dd>Boda + acceso a termas para invitados. Único en Mendoza.</dd>
+          <dt>En enero</dt><dd>Termas al aire libre de noche en clima cálido = experiencia mágica</dd>
+          <dt>Precio</dt><dd>~$2.500.000–4.000.000 ARS paquete (50 pax) <span style="color:var(--verde-med);font-weight:600;">(~$2.050.000–3.280.000 CLP)</span></dd>
+          <dt>Precio x pax</dt><dd>~$50.000–80.000 ARS/persona <span style="color:var(--verde-med);font-weight:600;">(~$41.000–65.000 CLP)</span></dd>
+        </dl>
+        <div class="box box-verde" style="margin:10px 0 0;">
+          <div class="box-title">✨ Por qué es diferente</div>
+          Los invitados llegan, se bañan en las piscinas termales, cena y fiesta. Después vuelven a bañarse. Ninguna otra boda en Mendoza ofrece esto.
+        </div>
+      </div>
+    </div>
+
+    <!-- Casa de Campo Eventos -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--verde2);">
+        <h4>Casa de Campo Eventos</h4>
+        <p>Perdriel, Luján de Cuyo · ~25 min del centro · ideal ~50 personas</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>30–170 personas · quincho + parque 1 ha.</dd>
+          <dt>Estilo</dt><dd>Quinta de campo con gran parquizado. Dueños residen en el lugar, atención personalizada. Más de 200 bodas realizadas.</dd>
+          <dt>Ideal para</dt><dd>Bodas íntimas de 40–60 personas con calidez familiar</dd>
+          <dt>Precio</dt><dd>~$950–1.500 ARS/persona (catering completo incluido) <span style="color:var(--verde-med);font-weight:600;">(~$780–1.230 CLP/pax)</span></dd>
+          <dt>Total 50 pax</dt><dd>~$47.500–75.000 ARS <span style="color:var(--verde-med);font-weight:600;">(~$39.000–62.000 CLP)</span></dd>
+        </dl>
+        <div class="box box-tip" style="margin:10px 0 0;">
+          <div class="box-title">💡 Muy conveniente para bodas pequeñas</div>
+          El precio por persona incluye catering completo. Para 50 invitados es la opción más accesible y personalizada de la lista.
+        </div>
+      </div>
+    </div>
+
+    <!-- La Martineta Potrerillos -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--azul-osc);">
+        <h4>La Martineta — Potrerillos</h4>
+        <p>Ruta N°7 km 1090, Potrerillos · Entre el lago y el Cordón del Plata</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>Hasta 150 personas · al aire libre o bajo carpa</dd>
+          <dt>Estilo</dt><dd>En el corazón de la Cordillera. Vista al lago de Potrerillos y al Cordón del Plata. Impronta autóctona mendocina.</dd>
+          <dt>Ideal para</dt><dd>Bodas con paisaje cordillerano único · muy fotogénico</dd>
+          <dt>Precio</dt><dd>~$3.000 ARS/persona referencial (confirmar con el venue) <span style="color:var(--verde-med);font-weight:600;">(~$2.460 CLP/pax)</span></dd>
+          <dt>Total 50 pax</dt><dd>~$150.000 ARS referencial <span style="color:var(--verde-med);font-weight:600;">(~$123.000 CLP)</span></dd>
+        </dl>
+        <div class="box box-boda" style="margin:10px 0 0;">
+          <div class="box-title">💒 Dato</div>
+          Está camino a Cacheuta (Ruta 7). Pueden verlo el sábado de ida a las termas.
+        </div>
+      </div>
+    </div>
+
+    <!-- Entre Olivos -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--verde-med);">
+        <h4>Entre Olivos Eventos</h4>
+        <p>Luján de Cuyo · jardines con flora autóctona · eventos íntimos</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>30–80 personas · espacios interiores y jardín</dd>
+          <dt>Estilo</dt><dd>Jardines bellísimos con flora autóctona mendocina. Elegante y tranquilo. Ideal para bodas íntimas de día.</dd>
+          <dt>Ideal para</dt><dd>Bodas de ~50 personas en el día, con almuerzo o cena temprana</dd>
+          <dt>Precio</dt><dd>~$800.000–1.500.000 ARS alquiler del espacio <span style="color:var(--verde-med);font-weight:600;">(~$656.000–1.230.000 CLP)</span> + catering aparte</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Bodega Don Manuel Villafañe -->
+    <div class="venue-card">
+      <div class="venue-card-head" style="background:var(--coral);">
+        <h4>Bodega Don Manuel Villafañe</h4>
+        <p>Luján de Cuyo · viñedos + jardines + vista cordillera</p>
+      </div>
+      <div class="venue-card-body">
+        <dl class="dl">
+          <dt>Capacidad</dt><dd>30–100 personas</dd>
+          <dt>Estilo</dt><dd>Servicio integral: paisaje de viñedos, jardines, vista panorámica de la Cordillera de los Andes. Bodega boutique.</dd>
+          <dt>Ideal para</dt><dd>Bodas pequeñas con todo incluido en una sola locación</dd>
+          <dt>Precio</dt><dd>~$1.500.000–3.000.000 ARS paquete boda (50 pax) <span style="color:var(--verde-med);font-weight:600;">(~$1.230.000–2.460.000 CLP)</span></dd>
+          <dt>Precio x pax</dt><dd>~$30.000–60.000 ARS/persona <span style="color:var(--verde-med);font-weight:600;">(~$24.600–49.200 CLP)</span></dd>
+        </dl>
+        <div class="box box-tip" style="margin:10px 0 0;">
+          <div class="box-title">💡 Excelente relación precio/entorno</div>
+          Para 50 personas es muy accesible vs las bodegas premium. Entorno igual de fotogénico.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla comparativa -->
+  <h3 style="font-size:14px;font-weight:600;color:var(--negro);margin:28px 0 12px;text-transform:uppercase;letter-spacing:0.05em;">Comparativa rápida — venues para 50 personas</h3>
+  <div class="card" style="overflow-x:auto;">
+    <table class="costos-table">
+      <thead>
+        <tr>
+          <th>Venue</th>
+          <th>Capacidad</th>
+          <th>Precio total (50 pax) ARS</th>
+          <th>Equiv. CLP</th>
+          <th>Estilo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Casa de Campo Eventos</td><td>30–170</td><td>~$47.500–75.000 ARS</td><td>~$39.000–62.000 CLP</td><td>Cálido, familiar</td></tr>
+        <tr><td>Entre Olivos Eventos</td><td>30–80</td><td>~$800.000–1.500.000 ARS</td><td>~$656.000–1.230.000 CLP</td><td>Jardín elegante</td></tr>
+        <tr><td>Bodega Don Manuel Villafañe</td><td>30–100</td><td>~$1.500.000–3.000.000 ARS</td><td>~$1.230.000–2.460.000 CLP</td><td>Viñedo boutique</td></tr>
+        <tr><td>La Martineta Potrerillos</td><td>hasta 150</td><td>~$150.000 ARS ref.</td><td>~$123.000 CLP</td><td>Cordillerano</td></tr>
+        <tr><td>Termas Cacheuta El Vergel</td><td>hasta 120</td><td>~$2.500.000–4.000.000 ARS</td><td>~$2.050.000–3.280.000 CLP</td><td>Único + termas</td></tr>
+        <tr><td>Bodega Ruca Malén</td><td>80–200</td><td>~$3.500.000–5.000.000 ARS</td><td>~$2.870.000–4.100.000 CLP</td><td>Viñedo premium</td></tr>
+        <tr class="total"><td colspan="2"><strong>Más económico para 50 pax</strong></td><td colspan="2"><strong>Casa de Campo Eventos o La Martineta</strong></td><td>Familiar/naturaleza</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-tip" style="border-radius:10px;padding:14px 16px;margin-top:12px;">
+    <div class="box-title">💡 Tip clave para boda de ~50 personas en enero</div>
+    Con 50 invitados tienen acceso a los venues más íntimos y personalizados de Mendoza, que son justamente los más fotogénicos. No necesitan un gran salón — busquen <strong>jardín + quincho cubierto como respaldo</strong>. En enero el clima mendocino (28–35°C de día, 20°C de noche) es perfecto para celebrar al aire libre.
+  </div>
+
+  <h3 style="font-size:14px;font-weight:600;color:var(--verde-osc);margin:24px 0 12px;text-transform:uppercase;letter-spacing:0.05em;">Para que la boda argentina valga en Chile</h3>
+
+  <div class="proceso">
+    <div class="paso">
+      <div class="paso-num">1</div>
+      <div class="paso-body">
+        <h4>Matrimonio civil en Argentina</h4>
+        <p>Registro Civil de Mendoza. Documentos: pasaporte/DNI + partida de nacimiento apostillada + certificado de soltería del Registro Civil chileno apostillado. Solicitar turno con 3–6 meses de anticipación.</p>
+      </div>
+    </div>
+    <div class="paso">
+      <div class="paso-num">2</div>
+      <div class="paso-body">
+        <h4>Apostillar documentos en Chile</h4>
+        <p>Portal online: <strong>apostilla.minrel.gob.cl</strong> · Presencial: Catedral 1158, Santiago (Ministerio RR.EE.) · Costo: ~$9.000 CLP por documento · Plazo: 1–5 días hábiles.</p>
+      </div>
+    </div>
+    <div class="paso">
+      <div class="paso-num">3</div>
+      <div class="paso-body">
+        <h4>Inscripción en el día de la boda</h4>
+        <p>El oficial del Registro Civil de Mendoza inscribe el matrimonio el mismo día. Solicitar el acta de matrimonio argentina apostillada al terminar la ceremonia.</p>
+      </div>
+    </div>
+    <div class="paso">
+      <div class="paso-num">4</div>
+      <div class="paso-body">
+        <h4>Inscribir en Chile</h4>
+        <p>Con el acta argentina apostillada, ir al Registro Civil chileno para inscribir el matrimonio y que tenga validez legal en Chile.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     COSTOS
+══════════════════════════════════════════════ -->
+<div id="costos" class="section">
+  <div class="day-header dh-azul">
+    <h2>Resumen de Costos — 9 Personas, 3 Días</h2>
+    <p>Estimados a junio 2026 · Confirmar precios al momento del viaje · Tipo de cambio referencial: 1 ARS ≈ 0.82 CLP</p>
+  </div>
+
+  <div class="card">
+    <table class="costos-table">
+      <thead>
+        <tr>
+          <th>Ítem</th>
+          <th>En ARS</th>
+          <th>En CLP (aprox.)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Peaje + Seguros RC Argentina (2 autos)</td><td>—</td><td>~$40.000–60.000</td></tr>
+        <tr><td>Almuerzo Uspallata (9 personas)</td><td>~$27.000–45.000</td><td>~$22.000–37.000</td></tr>
+        <tr><td>Supermercado total finde (carnes + desayunos + snacks)</td><td>~$80.000–110.000</td><td>~$66.000–90.000</td></tr>
+        <tr><td>Asado viernes en casa</td><td>Incluido en super</td><td>—</td></tr>
+        <tr><td>Termas Cacheuta (con promo 4x3, 9 personas)</td><td>~$108.000–132.000</td><td>~$88.000–108.000</td></tr>
+        <tr><td>Chocolatería Abuela Goye (9 personas)</td><td>~$27.000–54.000</td><td>~$22.000–44.000</td></tr>
+        <tr><td>Tour bodega Chacras de Coria (6 adultos)</td><td>~$60.000</td><td>~$49.000</td></tr>
+        <tr><td>Cena La Marchigiana — sábado noche (9 pax + vino)</td><td>~$78.000–83.000</td><td>~$64.000–68.000</td></tr>
+        <tr><td>Café peatonal + Parque San Martín — domingo</td><td>~$28.000–42.000</td><td>~$23.000–34.000</td></tr>
+        <tr><td>Almuerzo domingo (Il Postino o Montecatini)</td><td>~$45.000–80.000</td><td>~$37.000–65.000</td></tr>
+        <tr><td>Combustible ida y vuelta (2 autos)</td><td>—</td><td>~$80.000–120.000</td></tr>
+        <tr class="total"><td><strong>TOTAL ESTIMADO GRUPO</strong></td><td>~$453.000–546.000 ARS</td><td><strong>~$491.000–675.000 CLP</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-amber" style="border-radius:10px;padding:14px 16px;background:var(--amber-clr);color:var(--amber-osc);margin-top:8px;">
+    <div class="box-title" style="color:var(--amber-osc);">⚠️ Nota importante</div>
+    <ul>
+      <li>Precios en ARS <strong>sujetos a inflación argentina</strong> — verificar siempre en la web oficial antes del viaje.</li>
+      <li>Llevar mínimo <strong>$200.000 CLP en pesos argentinos en efectivo</strong> para el grupo (además de tarjeta de débito internacional).</li>
+      <li>El tipo de cambio ARS/CLP puede variar significativamente entre ahora y junio.</li>
+      <li>Con la promo 4x3 de Termas y los asados en casa, el ahorro estimado es de <strong>~$80.000–120.000 ARS</strong> vs el plan sin ahorros.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     DOCUMENTACIÓN
+══════════════════════════════════════════════ -->
+<div id="docs" class="section">
+  <div class="day-header dh-azul">
+    <h2>Documentación Completa del Viaje</h2>
+    <p>Todo lo que necesitan las 3 familias · Checklist por ítem · Revisar antes de salir</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Para cruzar la frontera — las 3 familias</h3>
+      <p>Preparar con anticipación · Revisión doble antes de salir el viernes 26</p>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Personas</span><span class="detail-val">Cédula de identidad vigente o pasaporte — todas las 9 personas. Los niños necesitan cédula propia (no sirve estar en la cédula del padre).</span></div>
+      <div class="detail-row"><span class="detail-label">Niños</span><span class="detail-val">Si un niño viaja con solo uno de sus padres biológicos: autorización notarial del padre ausente, firmada ante notaría chilena. No requiere apostilla para Argentina.</span></div>
+      <div class="detail-row"><span class="detail-label">Autos</span><span class="detail-val">Permiso de circulación vigente + SOAP vigente + padrón/título del vehículo. Si el auto no es tuyo: carta notarial del dueño autorizando el viaje.</span></div>
+      <div class="detail-row"><span class="detail-label">Seguro</span><span class="detail-val">Seguro RC Argentina obligatorio. Contratar online antes (MAPFRE, Zurich, HDI): ~$15.000–25.000 CLP por auto. En el paso es 30% más caro.</span></div>
+      <div class="detail-row"><span class="detail-label">Alimentos</span><span class="detail-val">Prohibido ingresar: frutas frescas, verduras, carnes, embutidos caseros, lácteos frescos, suelo, semillas. Sí: envasados cerrados de fábrica.</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Preparación previa</div>
+      <ul>
+        <li>Contratar seguro RC Argentina online al menos 48 hrs antes del viaje.</li>
+        <li>Revisar vencimiento de cédulas de todos los niños (sorprende la cantidad que viajan con cédula vencida).</li>
+        <li>Llevar pesos argentinos desde Chile: tasa de cambio mejor en casas de cambio chilenas que en ATM argentinos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Para casarse en Argentina — novios chilenos</h3>
+      <p>Tramitación previa · Lo más urgente es el apostillado de documentos</p>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Civil</span><span class="detail-val">Registro Civil de Mendoza: pasaporte/DNI + partida de nacimiento apostillada + certificado de soltería del RC chileno apostillado. Turno con 3–6 meses de anticipación.</span></div>
+      <div class="detail-row"><span class="detail-label">Religioso</span><span class="detail-val">Bautismo + Confirmación (recientes) + Libertad de estado eclesiástica + Curso prematrimonial certificado + carta presentación párroco chileno. Todo apostillado.</span></div>
+      <div class="detail-row"><span class="detail-label">Apostilla</span><span class="detail-val">apostilla.minrel.gob.cl · Presencial: Catedral 1158, Santiago · ~$9.000 CLP por documento · 1–5 días hábiles.</span></div>
+      <div class="detail-row"><span class="detail-label">Validez CL</span><span class="detail-val">Inscribir en RC de Mendoza el mismo día → pedir acta apostillada → inscribir en RC chileno con ese documento.</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Lo más urgente ahora (si la boda es en enero)</div>
+      Si ya tienen fecha definida para enero, las acciones inmediatas son: (1) reservar la iglesia y el venue con anticipo, (2) iniciar el apostillado de documentos, (3) confirmar que los documentos eclesiales no superen los 6 meses al momento de la boda.
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer style="background:var(--verde-osc);color:rgba(255,255,255,0.6);text-align:center;padding:20px 16px;font-size:12px;line-height:1.6;">
+  Itinerario preparado para las 3 familias · Mendoza, 26–28 Junio 2026<br>
+  <span style="color:var(--verde);">Neuquén 2852, Mendoza (5500)</span> · Viaje familiar + Reconocimiento Boda Enero
+</footer>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
