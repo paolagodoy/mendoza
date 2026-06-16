@@ -405,7 +405,8 @@
     <button class="nav-btn" onclick="show('d2',this)">Dom · Almuerzo/Regreso</button>
     <button class="nav-btn" onclick="show('boda',this)">💒 Boda Enero</button>
     <button class="nav-btn" onclick="show('costos',this)">$ Costos</button>
-    <button class="nav-btn" onclick="show('docs',this)">📋 Documentación</button>
+    <button class="nav-btn" onclick="show('docs',this)">📋 Documentación & Checklist</button>
+    <button class="nav-btn" onclick="show('seguros',this)">🛡️ Seguros</button>
   </nav>
 </div>
 
@@ -1666,50 +1667,292 @@
 <!-- ══════════════════════════════════════════════
      DOCUMENTACIÓN
 ══════════════════════════════════════════════ -->
-<div id="docs" class="section">
-  <div class="day-header dh-azul">
-    <h2>Documentación Completa del Viaje</h2>
-    <p>Todo lo que necesitan las 3 familias · Checklist por ítem · Revisar antes de salir</p>
-  </div>
+  <div id="docs" class="section">
+    <div class="day-header dh-rosa">
+      <h2>📋 Documentación & Checklist Completo</h2>
+      <p>Revisa cada categoría antes de partir · Haz click para marcar como revisado ✓</p>
+    </div>
 
-  <div class="card">
-    <div class="card-head">
-      <h3>Para cruzar la frontera — las 3 familias</h3>
-      <p>Preparar con anticipación · Revisión doble antes de salir el viernes 26</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;padding:20px 0;">
+      <!-- ADULTOS -->
+      <div class="card">
+        <div class="card-head">
+          <h3>👨‍👩‍👧 Documentación ADULTOS (6 personas)</h3>
+          <p>Necesario para cruzar frontera</p>
+        </div>
+        <div class="card-body">
+          <ul style="list-style:none;font-size:13px;">
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Cédula identidad chilena definitiva (VIGENTE) — 6 adultos
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Pasaporte venezolano (opcional de respaldo)
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Licencia de conducir (conductor principal)
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Tarjeta crédito/débito internacional
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Seguro viaje personal (comprobante impreso)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- NIÑOS -->
+      <div class="card">
+        <div class="card-head">
+          <h3>👧👦 Documentación NIÑOS (3: 7, 7, 3 años)</h3>
+          <p>Especial atención a menores</p>
+        </div>
+        <div class="card-body">
+          <ul style="list-style:none;font-size:13px;">
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Cédula identidad chilena (3 niños) — VIGENTE
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> ⚠️ Autorización notarial del padre/madre ausente (SI aplica)
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Carnet vacuna / certificado vacunas
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Recetas médicas de medicinas crónicas
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Contactos emergencia médica en teléfono
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AUTOS -->
+      <div class="card">
+        <div class="card-head">
+          <h3>🚗 Documentación AUTOS (2 vehículos)</h3>
+          <p>SIN estos NO cruzan frontera</p>
+        </div>
+        <div class="card-body">
+          <ul style="list-style:none;font-size:13px;">
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> ⚠️ Permiso de circulación (VIGENTE) — AUTO 1
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> ⚠️ Permiso de circulación (VIGENTE) — AUTO 2
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> ⚠️ SOAP (Seguro Obligatorio Auto) — AUTO 1
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> ⚠️ SOAP (Seguro Obligatorio Auto) — AUTO 2
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Cédula/Padrón vehículo — AUTO 1
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Cédula/Padrón vehículo — AUTO 2
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> ⚠️ OBLIGATORIO: Seguro RC Argentina (impreso) — AUTO 1
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> ⚠️ OBLIGATORIO: Seguro RC Argentina (impreso) — AUTO 2
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Carta notarial del dueño (SI auto no es tuyo)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- DINERO -->
+      <div class="card">
+        <div class="card-head">
+          <h3>💳 Dinero & Pagos</h3>
+          <p>Para toda la estadía</p>
+        </div>
+        <div class="card-body">
+          <ul style="list-style:none;font-size:13px;">
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Pesos argentinos cambiados en Santiago (~$200.000 ARS)
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Efectivo CLP ~$50.000 (para emergencias en el paso)
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Tarjeta crédito Visa/Mastercard
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Tarjeta débito o segunda tarjeta crédito
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--gris-borde);" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Verificar claves de transacciones internacionales ACTIVADAS
+            </li>
+            <li style="padding:8px 0;cursor:pointer;user-select:none;" onclick="this.classList.toggle('done')">
+              <span style="margin-right:8px;">☐</span> Teléfono banco (por si hay bloqueo de tarjeta)
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-      <div class="detail-row"><span class="detail-label">Personas</span><span class="detail-val">Cédula de identidad vigente o pasaporte — todas las 9 personas. Los niños necesitan cédula propia (no sirve estar en la cédula del padre).</span></div>
-      <div class="detail-row"><span class="detail-label">Niños</span><span class="detail-val">Si un niño viaja con solo uno de sus padres biológicos: autorización notarial del padre ausente, firmada ante notaría chilena. No requiere apostilla para Argentina.</span></div>
-      <div class="detail-row"><span class="detail-label">Autos</span><span class="detail-val">Permiso de circulación vigente + SOAP vigente + padrón/título del vehículo. Si el auto no es tuyo: carta notarial del dueño autorizando el viaje.</span></div>
-      <div class="detail-row"><span class="detail-label">Seguro</span><span class="detail-val">Seguro RC Argentina obligatorio. Contratar online antes (MAPFRE, Zurich, HDI): ~$15.000–25.000 CLP por auto. En el paso es 30% más caro.</span></div>
-      <div class="detail-row"><span class="detail-label">Alimentos</span><span class="detail-val">Prohibido ingresar: frutas frescas, verduras, carnes, embutidos caseros, lácteos frescos, suelo, semillas. Sí: envasados cerrados de fábrica.</span></div>
-    </div>
-    <div class="box box-tip">
-      <div class="box-title">💡 Preparación previa</div>
-      <ul>
-        <li>Contratar seguro RC Argentina online al menos 48 hrs antes del viaje.</li>
-        <li>Revisar vencimiento de cédulas de todos los niños (sorprende la cantidad que viajan con cédula vencida).</li>
-        <li>Llevar pesos argentinos desde Chile: tasa de cambio mejor en casas de cambio chilenas que en ATM argentinos.</li>
+
+    <div class="box box-importante" style="margin-top:20px;">
+      <div class="box-title">⚠️ CRÍTICO — Sin estos documentos NO cruzan frontera</div>
+      <ul style="margin:8px 0 0;">
+        <li><strong>Cédula identidad chilena definitiva (VIGENTE)</strong> — 9 personas</li>
+        <li><strong>Permiso circulación VIGENTE</strong> — 2 autos</li>
+        <li><strong>SOAP VIGENTE</strong> — 2 autos</li>
+        <li><strong>Seguro RC Argentina OBLIGATORIO</strong> — 2 autos (contratar ONLINE ANTES)</li>
+        <li><strong>Seguro Viaje OBLIGATORIO</strong> — 9 personas (desde julio 2025 en Argentina)</li>
+        <li>Si niño viaja con un padre: <strong>Autorización notarial del otro padre</strong></li>
       </ul>
     </div>
+
+    <style>
+      li.done span:first-child { color: var(--verde-med); font-weight: bold; }
+      li.done { opacity: 0.5; text-decoration: line-through; }
+    </style>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SEGUROS
+══════════════════════════════════════════════ -->
+
+<div id="seguros" class="section">
+  <div class="day-header dh-morado">
+    <h2>🛡️ Seguros & Aseguradoras</h2>
+    <p>Comparativa con links directos · Contraten online 30% más barato</p>
   </div>
 
-  <div class="card">
-    <div class="card-head">
-      <h3>Para casarse en Argentina — novios chilenos</h3>
-      <p>Tramitación previa · Lo más urgente es el apostillado de documentos</p>
+  <div style="padding:20px 0;">
+    <h3 style="font-size:15px;font-weight:600;color:var(--negro);margin:20px 0 16px;text-transform:uppercase;letter-spacing:0.05em;">💰 Seguro RC Auto Argentina (OBLIGATORIO para 2 autos)</h3>
+    
+    <div class="card" style="overflow-x:auto;">
+      <table class="costos-table">
+        <thead>
+          <tr>
+            <th>Aseguradora</th>
+            <th>Precio 3 días</th>
+            <th>Cobertura</th>
+            <th>Link Directo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🔴 MAPFRE</strong></td>
+            <td style="color:var(--verde-med);font-weight:bold;">$8.750 CLP</td>
+            <td>MERCOSUR · Daños a terceros US$40K</td>
+            <td><a href="https://www.mapfre.cl/seguros-viajes/rc-internacional/" target="_blank" class="btn-seguro">MAPFRE →</a></td>
+          </tr>
+          <tr>
+            <td><strong>🔵 Zurich</strong></td>
+            <td style="color:var(--verde-med);font-weight:bold;">~$9.5–11K CLP</td>
+            <td>MERCOSUR · Amplia cobertura</td>
+            <td><a href="https://www.zurich.cl/seguros-personas/auto" target="_blank" class="btn-seguro">Zurich →</a></td>
+          </tr>
+          <tr>
+            <td><strong>🟢 Banco Santander</strong></td>
+            <td style="color:var(--verde-med);font-weight:bold;">~$10K–12.5K CLP</td>
+            <td>MERCOSUR · Auto reemplazo</td>
+            <td><a href="https://banco.santander.cl/personas/seguros/viajes/detalles" target="_blank" class="btn-seguro">Santander →</a></td>
+          </tr>
+          <tr>
+            <td><strong>🟣 BCI Seguros</strong></td>
+            <td style="color:var(--verde-med);font-weight:bold;">~$8.5K–10K CLP</td>
+            <td>MERCOSUR · Mejor precio</td>
+            <td><a href="https://www.bciseguros.cl/nuestros_seguros/personas/seguro-de-viaje/" target="_blank" class="btn-seguro">BCI →</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="card-body">
-      <div class="detail-row"><span class="detail-label">Civil</span><span class="detail-val">Registro Civil de Mendoza: pasaporte/DNI + partida de nacimiento apostillada + certificado de soltería del RC chileno apostillado. Turno con 3–6 meses de anticipación.</span></div>
-      <div class="detail-row"><span class="detail-label">Religioso</span><span class="detail-val">Bautismo + Confirmación (recientes) + Libertad de estado eclesiástica + Curso prematrimonial certificado + carta presentación párroco chileno. Todo apostillado.</span></div>
-      <div class="detail-row"><span class="detail-label">Apostilla</span><span class="detail-val">apostilla.minrel.gob.cl · Presencial: Catedral 1158, Santiago · ~$9.000 CLP por documento · 1–5 días hábiles.</span></div>
-      <div class="detail-row"><span class="detail-label">Validez CL</span><span class="detail-val">Inscribir en RC de Mendoza el mismo día → pedir acta apostillada → inscribir en RC chileno con ese documento.</span></div>
+
+    <h3 style="font-size:15px;font-weight:600;color:var(--negro);margin:24px 0 16px;text-transform:uppercase;letter-spacing:0.05em;">🌍 Seguro Viaje Personal (OBLIGATORIO para 9 personas, 3 días)</h3>
+    
+    <div class="card" style="overflow-x:auto;">
+      <table class="costos-table">
+        <thead>
+          <tr>
+            <th>Aseguradora</th>
+            <th>Precio Total</th>
+            <th>Cobertura Médica</th>
+            <th>Link Directo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🔴 MAPFRE</strong></td>
+            <td style="color:var(--verde-med);font-weight:bold;">~$25–40K CLP</td>
+            <td>Hasta $100K USD + Repatriación</td>
+            <td><a href="https://www.protegetuviaje.com/" target="_blank" class="btn-seguro">MAPFRE →</a></td>
+          </tr>
+          <tr>
+            <td><strong>🔵 BCI Seguros</strong></td>
+            <td style="color:var(--verde-med);font-weight:bold;">~$20–35K CLP</td>
+            <td>Hasta $150K USD ⭐ (Mejor)</td>
+            <td><a href="https://www.bciseguros.cl/nuestros_seguros/personas/seguro-de-viaje/" target="_blank" class="btn-seguro">BCI →</a></td>
+          </tr>
+          <tr>
+            <td><strong>🟢 Banco Santander</strong></td>
+            <td style="color:var(--verde-med);font-weight:bold;">~$22–38K CLP</td>
+            <td>Hasta $100K USD + Repatriación</td>
+            <td><a href="https://banco.santander.cl/personas/seguros/viajes/detalles" target="_blank" class="btn-seguro">Santander →</a></td>
+          </tr>
+          <tr>
+            <td><strong>🟠 SURA</strong></td>
+            <td style="color:var(--verde-med);font-weight:bold;">~$18–32K CLP</td>
+            <td>Hasta $80K USD</td>
+            <td><a href="https://www.comparaonline.cl/seguro-viaje/destino/sudamerica/argentina" target="_blank" class="btn-seguro">SURA →</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="box box-tip">
-      <div class="box-title">💡 Lo más urgente ahora (si la boda es en enero)</div>
-      Si ya tienen fecha definida para enero, las acciones inmediatas son: (1) reservar la iglesia y el venue con anticipo, (2) iniciar el apostillado de documentos, (3) confirmar que los documentos eclesiales no superen los 6 meses al momento de la boda.
+
+    <h3 style="font-size:15px;font-weight:600;color:var(--negro);margin:24px 0 16px;text-transform:uppercase;letter-spacing:0.05em;">🔗 Plataformas Comparadoras (Todos los seguros)</h3>
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:20px;">
+      <div class="card">
+        <h4 style="margin-bottom:8px;color:var(--negro);">ComparaOnline.cl</h4>
+        <p style="font-size:13px;margin-bottom:12px;color:var(--gris);">Comparador oficial de seguros en Chile · Cotización sin costo</p>
+        <a href="https://www.comparaonline.cl/seguro-rci" target="_blank" style="display:inline-block;background:var(--verde-med);color:white;padding:8px 12px;border-radius:4px;text-decoration:none;font-weight:600;font-size:12px;margin-bottom:8px;">RC Argentina →</a>
+        <br>
+        <a href="https://www.comparaonline.cl/seguro-viaje/destino/sudamerica/argentina" target="_blank" style="display:inline-block;background:var(--verde-med);color:white;padding:8px 12px;border-radius:4px;text-decoration:none;font-weight:600;font-size:12px;">Viaje Argentina →</a>
+      </div>
+
+      <div class="card">
+        <h4 style="margin-bottom:8px;color:var(--negro);">ProtegeTuViaje.com</h4>
+        <p style="font-size:13px;margin-bottom:12px;color:var(--gris);">Especialista en seguros de viaje · Artículos útiles + cotización</p>
+        <a href="https://www.protegetuviaje.com/" target="_blank" style="display:inline-block;background:var(--rosa-osc);color:white;padding:8px 12px;border-radius:4px;text-decoration:none;font-weight:600;font-size:12px;">Todos los seguros →</a>
+      </div>
     </div>
   </div>
+
+  <div class="box box-tip">
+    <div class="box-title">💡 AHORRO GARANTIZADO — Contraten ONLINE ANTES de viajar</div>
+    <p style="margin:8px 0;">Comprar seguro RC Argentina <strong>online en ComparaOnline o ProtegeTuViaje es 30% más barato</strong> que comprarlo en el paso fronterizo. La diferencia viene por: sin comisión, mejor tasa de cambio si pagan en pesos.</p>
+    <ul style="margin:8px 0 0;list-style:disc;margin-left:20px;font-size:13px;">
+      <li>Contraten con <strong>mínimo 48 horas antes</strong> de viajar</li>
+      <li>Lleven comprobante impreso O en el celular</li>
+      <li>Si no saben cuál elegir: MAPFRE RC + BCI Viaje (mejor relación precio/cobertura)</li>
+    </ul>
+  </div>
+
+  <style>
+    .btn-seguro {
+      display: inline-block;
+      background: var(--rosa-osc);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 11px;
+      transition: all 0.3s;
+    }
+    .btn-seguro:hover { background: var(--rosa); }
+  </style>
 </div>
 
 </main>
