@@ -319,9 +319,19 @@
   .venue-card-head {
     padding: 12px 14px 10px;
     color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
   }
-  .venue-card-head h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-  .venue-card-head p  { font-size: 11px; opacity: 0.85; }
+  .venue-card-head h4 { 
+    font-size: 14px; 
+    font-weight: 600; 
+    margin-bottom: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  }
+  .venue-card-head p  { 
+    font-size: 11px; 
+    opacity: 0.95;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
   .venue-card-body { padding: 12px 14px; font-size: 12.5px; line-height: 1.6; }
   .venue-card-body .dl { display: grid; grid-template-columns: 70px 1fr; gap: 3px 6px; }
   .venue-card-body .dl dt { font-weight: 600; color: var(--gris); font-size: 11px; }
@@ -369,11 +379,47 @@
   .choco-banner h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
   .choco-banner p  { font-size: 12px; opacity: 0.85; }
 
+  /* ── BOTONES IGLESIAS (MAPS + FOTOS) ── */
+  .iglesia-buttons {
+    display: inline-block;
+    margin-left: 8px;
+    margin-top: 2px;
+  }
+  .iglesia-buttons a {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    color: white;
+    margin-right: 6px;
+    transition: all 0.2s ease;
+  }
+  .iglesia-buttons a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  }
+  .iglesia-buttons a.maps-btn {
+    background: var(--verde-med);
+  }
+  .iglesia-buttons a.maps-btn:hover {
+    background: #0F9E5C;
+  }
+  .iglesia-buttons a.fotos-btn {
+    background: #5B7FD4;
+  }
+  .iglesia-buttons a.fotos-btn:hover {
+    background: #4A6FBF;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     .detail-row { grid-template-columns: 80px 1fr; font-size: 12px; }
     .card-head h3 { font-size: 14px; }
     .box { margin: 8px 14px 12px; }
+    .iglesia-buttons { display: block; margin-left: 0; margin-top: 8px; }
+    .iglesia-buttons a { display: block; width: 100%; text-align: center; margin-bottom: 6px; }
   }
 </style>
 </head>
@@ -1114,7 +1160,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--rosa-osc);">
         <h4>Basílica de San Francisco</h4>
-        <p>Av. España 1418, Mendoza centro · Tel: 261 425-6606 · VER el domingo mañana</p>
+        <p>Av. España 1418, Mendoza centro · Tel: 261 425-6606 · VER el domingo mañana</p> <span class="iglesia-buttons"><a href="https://maps.google.com/?cid=14930208759484352865" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Basílica+San+Francisco+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1130,7 +1176,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--rosa);">
         <h4>Catedral Nuestra Señora de Loreto</h4>
-        <p>José F. Moreno 1316, Mendoza centro · Tel: 261 425-5654</p>
+        <p>José F. Moreno 1316, Mendoza centro · Tel: 261 425-5654</p> <span class="iglesia-buttons"><a href="https://maps.google.com/?cid=14098339434968644721" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Catedral+N.S.+de+Loreto+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1150,7 +1196,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--morado);">
         <h4>Parroquia N. S. de Loreto — Chacras de Coria</h4>
-        <p>Mazzolari 1, Chacras de Coria · Tel: 261 496-0258 · VER el sábado tarde</p>
+        <p>Mazzolari 1, Chacras de Coria · Tel: 261 496-0258 · VER el sábado tarde</p> <span class="iglesia-buttons"><a href="https://www.google.com/maps/search/Parroquia+Loreto+Chacras+Coria+Mazzolari" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Parroquia+Loreto+Chacras+Coria+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1170,7 +1216,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--verde-osc);">
         <h4>Parroquia San José de la Montaña ⭐ Joya nueva</h4>
-        <p>Valle del Sol, Potrerillos, Luján de Cuyo · inaugurada 2021</p>
+        <p>Valle del Sol, Potrerillos, Luján de Cuyo · inaugurada 2021</p> <span class="iglesia-buttons"><a href="https://www.google.com/maps/search/San+José+de+la+Montaña+Potrerillos+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=San+José+Montaña+Potrerillos&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1190,7 +1236,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--coral);">
         <h4>Templo Nuestra Señora de la Merced</h4>
-        <p>Montecaseros 1647, Mendoza capital · Tel: 261 425-7905</p>
+        <p>Montecaseros 1647, Mendoza capital · Tel: 261 425-7905</p> <span class="iglesia-buttons"><a href="https://www.google.com/maps/search/Iglesia+Merced+Montecaseros+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Iglesia+N.S.+Merced+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1206,7 +1252,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--azul-osc);">
         <h4>Parroquia San Vicente Ferrer</h4>
-        <p>Gral. Lavalle 60, Godoy Cruz · Tel: 261 422-1037</p>
+        <p>Gral. Lavalle 60, Godoy Cruz · Tel: 261 422-1037</p> <span class="iglesia-buttons"><a href="https://maps.google.com/?cid=9561060940390093905" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Basílica+San+Vicente+Ferrer+Godoy+Cruz&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1222,7 +1268,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--choco);">
         <h4>Iglesia de la Carrodilla</h4>
-        <p>San Martín y La Carrodilla, Luján de Cuyo · Tel: 261 436-1667</p>
+        <p>San Martín y La Carrodilla, Luján de Cuyo · Tel: 261 436-1667</p> <span class="iglesia-buttons"><a href="https://maps.google.com/?cid=12990934818268954984" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Iglesia+N.S.+Carrodilla+Luján+Cuyo&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1242,7 +1288,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--verde2);">
         <h4>Santuario María Auxiliadora</h4>
-        <p>Ruta Provincial 50 n°6722, Rodeo del Medio, Maipú · Tel: 261 495-1084</p>
+        <p>Ruta Provincial 50 n°6722, Rodeo del Medio, Maipú · Tel: 261 495-1084</p> <span class="iglesia-buttons"><a href="https://www.google.com/maps/search/Santuario+María+Auxiliadora+Rodeo+del+Medio" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Santuario+María+Auxiliadora+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1259,7 +1305,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--rosa);">
         <h4>Catedral N.S. de Loreto</h4>
-        <p>José Federico Moreno 1316, Mendoza centro · Tel: 261 425-5654</p>
+        <p>José Federico Moreno 1316, Mendoza centro · Tel: 261 425-5654</p> <span class="iglesia-buttons"><a href="https://maps.google.com/?cid=14098339434968644721" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Catedral+N.S.+de+Loreto+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1288,7 +1334,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--rosa-osc);">
         <h4>Basílica San Francisco</h4>
-        <p>Av. España 1418, Mendoza centro · Tel: 261 425-6606</p>
+        <p>Av. España 1418, Mendoza centro · Tel: 261 425-6606</p> <span class="iglesia-buttons"><a href="https://maps.google.com/?cid=14930208759484352865" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Basílica+San+Francisco+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1317,7 +1363,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--azul-osc);">
         <h4>Basílica San Vicente Ferrer</h4>
-        <p>Gral. Lavalle 60, Godoy Cruz · Tel: 261 422-1037</p>
+        <p>Gral. Lavalle 60, Godoy Cruz · Tel: 261 422-1037</p> <span class="iglesia-buttons"><a href="https://maps.google.com/?cid=9561060940390093905" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Basílica+San+Vicente+Ferrer+Godoy+Cruz&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1342,7 +1388,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--choco);">
         <h4>Iglesia N.S. de La Carrodilla</h4>
-        <p>San Martín y La Carrodilla, Luján de Cuyo · Tel: 261 436-1667</p>
+        <p>San Martín y La Carrodilla, Luján de Cuyo · Tel: 261 436-1667</p> <span class="iglesia-buttons"><a href="https://maps.google.com/?cid=12990934818268954984" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Iglesia+N.S.+Carrodilla+Luján+Cuyo&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1371,7 +1417,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--verde-osc);">
         <h4>Iglesia del Sagrado Corazón (Jesuitas)</h4>
-        <p>San Martín esquina Colón, Mendoza centro · Tel: no listado (consultar en Google Maps)</p>
+        <p>San Martín esquina Colón, Mendoza centro · Tel: no listado (consultar en Google Maps)</p> <span class="iglesia-buttons"><a href="https://www.google.com/maps/search/Iglesia+Sagrado+Corazón+San+Martín+Colón+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Iglesia+Sagrado+Corazón+Jesuitas+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1397,7 +1443,7 @@
     <div class="venue-card">
       <div class="venue-card-head" style="background:var(--morado);">
         <h4>Parroquia Santo Domingo</h4>
-        <p>Salta 2107, Mendoza centro · Tel: no listado</p>
+        <p>Salta 2107, Mendoza centro · Tel: no listado</p> <span class="iglesia-buttons"><a href="https://www.google.com/maps/search/Parroquia+Santo+Domingo+Salta+2107+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Parroquia+Santo+Domingo+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1428,9 +1474,9 @@
   <div class="venue-grid">
     <!-- Ruca Malén -->
     <div class="venue-card">
-      <div class="venue-card-head" style="background:var(--morado);">
+      <div class="venue-card-head" style="background-image: linear-gradient(rgba(139, 69, 19, 0.65), rgba(139, 69, 19, 0.65)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80'); background-size: cover; background-position: center;">
         <h4>Bodega Ruca Malén — Boda en viñedo</h4>
-        <p>Ruta 7 km 1059, Luján de Cuyo · VER el sábado en el tour</p>
+        <p>Ruta 7 km 1059, Luján de Cuyo · VER el sábado en el tour</p> <span class="iglesia-buttons"><a href="https://maps.google.com/maps/search/Bodega+Ruca+Malén+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Bodega+Ruca+Malén+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1455,9 +1501,9 @@
 
     <!-- Termas Cacheuta -->
     <div class="venue-card">
-      <div class="venue-card-head" style="background:var(--verde-osc);">
+      <div class="venue-card-head" style="background-image: linear-gradient(rgba(70, 130, 180, 0.65), rgba(70, 130, 180, 0.65)), url('https://images.unsplash.com/photo-1544161515-81aae2d8ba1f?w=800&q=80'); background-size: cover; background-position: center;">
         <h4>Termas Cacheuta — Salón El Vergel</h4>
-        <p>Ruta 82 km 38 · VER el sábado al llegar a las termas</p>
+        <p>Ruta 82 km 38 · VER el sábado al llegar a las termas</p> <span class="iglesia-buttons"><a href="https://maps.google.com/maps/search/Termas+Cacheuta+El+Vergel+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Termas+Cacheuta+El+Vergel&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1476,9 +1522,9 @@
 
     <!-- Casa de Campo Eventos -->
     <div class="venue-card">
-      <div class="venue-card-head" style="background:var(--verde2);">
+      <div class="venue-card-head" style="background-image: linear-gradient(rgba(101, 67, 33, 0.65), rgba(101, 67, 33, 0.65)), url('https://images.unsplash.com/photo-1519167758481-dc8986ba6c28?w=800&q=80'); background-size: cover; background-position: center;">
         <h4>Casa de Campo Eventos</h4>
-        <p>Perdriel, Luján de Cuyo · ~25 min del centro · ideal ~50 personas</p>
+        <p>Perdriel, Luján de Cuyo · ~25 min del centro · ideal ~50 personas</p> <span class="iglesia-buttons"><a href="https://maps.google.com/maps/search/Casa+de+Campo+Eventos+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Casa+Campo+Eventos+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1497,9 +1543,9 @@
 
     <!-- La Martineta Potrerillos -->
     <div class="venue-card">
-      <div class="venue-card-head" style="background:var(--azul-osc);">
+      <div class="venue-card-head" style="background-image: linear-gradient(rgba(139, 69, 19, 0.65), rgba(139, 69, 19, 0.65)), url('https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80'); background-size: cover; background-position: center;">
         <h4>La Martineta — Potrerillos</h4>
-        <p>Ruta N°7 km 1090, Potrerillos · Entre el lago y el Cordón del Plata</p>
+        <p>Ruta N°7 km 1090, Potrerillos · Entre el lago y el Cordón del Plata</p> <span class="iglesia-buttons"><a href="https://maps.google.com/maps/search/La+Martineta+Potrerillos+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=La+Martineta+Potrerillos&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1518,9 +1564,9 @@
 
     <!-- Entre Olivos -->
     <div class="venue-card">
-      <div class="venue-card-head" style="background:var(--verde-med);">
+      <div class="venue-card-head" style="background-image: linear-gradient(rgba(101, 67, 33, 0.65), rgba(101, 67, 33, 0.65)), url('https://images.unsplash.com/photo-1519167758481-dc8986ba6c28?w=800&q=80'); background-size: cover; background-position: center;">
         <h4>Entre Olivos Eventos</h4>
-        <p>Luján de Cuyo · jardines con flora autóctona · eventos íntimos</p>
+        <p>Luján de Cuyo · jardines con flora autóctona · eventos íntimos</p> <span class="iglesia-buttons"><a href="https://maps.google.com/maps/search/Entre+Olivos+Eventos+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Entre+Olivos+Eventos+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1534,9 +1580,9 @@
 
     <!-- Bodega Don Manuel Villafañe -->
     <div class="venue-card">
-      <div class="venue-card-head" style="background:var(--coral);">
+      <div class="venue-card-head" style="background-image: linear-gradient(rgba(139, 69, 19, 0.65), rgba(139, 69, 19, 0.65)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80'); background-size: cover; background-position: center;">
         <h4>Bodega Don Manuel Villafañe</h4>
-        <p>Luján de Cuyo · viñedos + jardines + vista cordillera</p>
+        <p>Luján de Cuyo · viñedos + jardines + vista cordillera</p> <span class="iglesia-buttons"><a href="https://maps.google.com/maps/search/Bodega+Don+Manuel+Villafañe+Mendoza" target="_blank" class="maps-btn">📍 Maps</a><a href="https://www.google.com/search?q=Bodega+Manuel+Villafañe+Mendoza&tbm=isch" target="_blank" class="fotos-btn">📸 Fotos</a></span>
       </div>
       <div class="venue-card-body">
         <dl class="dl">
@@ -1952,7 +1998,40 @@
       transition: all 0.3s;
     }
     .btn-seguro:hover { background: var(--rosa); }
-  </style>
+  
+      
+      /* Botones de iglesias - Maps y Fotos */
+      .iglesia-buttons {
+        display: inline-block;
+        margin-left: 8px;
+      }
+      .iglesia-buttons a {
+        display: inline-block;
+        padding: 5px 11px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 12px;
+        color: white;
+        margin-right: 6px;
+        transition: all 0.2s;
+      }
+      .iglesia-buttons a:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      }
+      .iglesia-buttons a.maps-btn {
+        background: var(--verde-med);
+      }
+      .iglesia-buttons a.fotos-btn {
+        background: #5B7FD4;
+      }
+      .iglesia-buttons a.maps-btn:hover {
+        background: #0F9E5C;
+      }
+      .iglesia-buttons a.fotos-btn:hover {
+        background: #4A6FBF;
+      }</style>
 </div>
 
 </main>
