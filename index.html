@@ -448,7 +448,8 @@
     <button class="nav-btn" onclick="show('s1',this)">Sáb · Mañana</button>
     <button class="nav-btn" onclick="show('s2',this)">Sáb · Tarde/Noche</button>
     <button class="nav-btn" onclick="show('d1',this)">Dom · Mañana</button>
-    <button class="nav-btn" onclick="show('d2',this)">Dom · Almuerzo/Regreso</button>
+    <button class="nav-btn" onclick="show('d1b',this)">Dom · Almuerzo/Regreso</button>
+    <button class="nav-btn" onclick="show('d2',this)">Lun · Mañana/Almuerzo</button>
     <button class="nav-btn" onclick="show('boda',this)">💒 Boda Enero</button>
     <button class="nav-btn" onclick="show('costos',this)">$ Costos</button>
     <button class="nav-btn" onclick="show('docs',this)">📋 Documentación & Checklist</button>
@@ -586,11 +587,11 @@
     <div class="card-body">
       <div class="detail-row"><span class="detail-label">La casa</span><span class="detail-val">Barrio residencial, estacionamiento para 2 autos. Distribuir habitaciones, conectar wifi, armar catres niños.</span></div>
       <div class="detail-row"><span class="detail-label">Supermercado</span><span class="detail-val">Walmart / Carrefour / La Anónima en la zona. Ir mientras otros instalan habitaciones.</span></div>
-      <div class="detail-row"><span class="detail-label">Comprar</span><span class="detail-val">Carnes para 2 asados (vacío, costillas, chorizos), pan, bebidas, desayunos x3 días, snacks niños, frutas, agua.</span></div>
+      <div class="detail-row"><span class="detail-label">Comprar</span><span class="detail-val">Carnes para asado del sábado (vacío, costillas, chorizos), pan, bebidas, desayunos x4 días, snacks niños, frutas, agua, verduras para asado.</span></div>
     </div>
     <div class="box box-tip">
       <div class="box-title">💡 Tip</div>
-      Comprar carnes para el asado del viernes y la alternativa del domingo en una sola ida. Evita volver al super el domingo con el apuro del regreso.
+      Comprar carnes para el asado del sábado en una sola ida. Asi evitan volver al super en el apuro del domingo antes de partir.
     </div>
     <div class="costo-strip"><span>Supermercado total fin de semana (9 personas)</span><span>~$80.000–110.000 ARS (~$66.000–90.000 CLP)</span></div>
   </div>
@@ -901,7 +902,7 @@
 <!-- ══════════════════════════════════════════════
      DOMINGO ALMUERZO + REGRESO
 ══════════════════════════════════════════════ -->
-<div id="d2" class="section">
+<div id="d1b" class="section">
   <div class="day-header dh-coral">
     <h2>Domingo 28 de Junio — Almuerzo y Regreso</h2>
     <p>Almuerzo 12:30 · Salida Santiago 15:00–15:30 hrs · Llegada ~21:00–22:00 hrs</p>
@@ -982,16 +983,131 @@
 </div>
 
 <!-- ══════════════════════════════════════════════
+     LUNES MAÑANA
+══════════════════════════════════════════════ -->
+<div id="d2" class="section">
+  <div class="day-header dh-naranja">
+    <h2>Lunes 29 de Junio — Mañana y Almuerzo</h2>
+    <p>Último día · Desayuno relajado · Paseo opcional · Almuerzo antes de partir</p>
+  </div>
+
+  <div class="turno turno-manana">Mañana (08:00–09:00) — Desayuno tranquilo</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Desayuno en casa — Último día</h3>
+      <p>Neuquén 2852 · Preparar y disfrutar sin apuro</p>
+      <div class="badge-row">
+        <span class="badge b-verde">Incluido supermercado</span>
+        <span class="badge b-azul">~09:30 salida para iglesias</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Menú</span><span class="detail-val">Pan, quesos, jamón serrano, frutas, café, té, jugos. Producto del super de viernes.</span></div>
+      <div class="detail-row"><span class="detail-label">Timing</span><span class="detail-val">Desayunar tranquilamente, limpiar, empacar sin prisa. Salida flexible ~09:00–09:30.</span></div>
+      <div class="detail-row"><span class="detail-label">Preparar casa</span><span class="detail-val">Dejar impecable: baños, pisos, cocina. Dejar llaves en lugar acordado.</span></div>
+    </div>
+  </div>
+
+  <div class="turno turno-manana">Mañana (09:30–12:00) — Actividades finales</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Opción A: Iglesias + Parque General San Martín</h3>
+      <p>Si aún no visitaron el domingo · Paseo cultural y fotos finales</p>
+      <div class="badge-row">
+        <span class="badge b-rosa">Reconocimiento boda</span>
+        <span class="badge b-verde">2-3 iglesias + parque</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Ruta</span><span class="detail-val">Catedral N.S. de Loreto (10 min) → Basílica San Francisco (15 min) → Parque General San Martín (paseo, café 30 min)</span></div>
+      <div class="detail-row"><span class="detail-label">Fotos</span><span class="detail-val">Iglesias de fachada, interior si están abiertas · Parque para fotos familia al lado de la fuente o bajo los árboles.</span></div>
+      <div class="detail-row"><span class="detail-label">Niños</span><span class="detail-val">Corren libres en parque · Uno de los adultos rota con café mientras otros toman fotos.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Opción B: Descanso en casa + preparación para regresar</h3>
+      <p>Si están cansados del viaje · Relajarse y partir descansados</p>
+      <div class="badge-row">
+        <span class="badge b-azul">Lunes tranquilo</span>
+        <span class="badge b-verde">Niños durmiendo siesta</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Actividades</span><span class="detail-val">Película para niños en casa · Adultos terminan de empacar y descansan · Preparar auto para regresar.</span></div>
+      <div class="detail-row"><span class="detail-label">Preparación</span><span class="detail-val">Verificar combustible en autos, revisar que todos tienen documentos, últimos snacks para ruta.</span></div>
+      <div class="detail-label"><span class="detail-label">Salida</span><span class="detail-val">~12:00–12:30 hrs para llegar a almuerzo ~13:30–14:00.</span></div>
+    </div>
+  </div>
+
+  <div class="turno turno-tarde">Almuerzo — Salida 12:30–13:00 hrs</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Almuerzo final — Il Postino o Montecatini</h3>
+      <p>Mendoza centro · 15 min desde casa</p>
+      <div class="badge-row">
+        <span class="badge b-verde">~$45.000–80.000 ARS (9 personas)</span>
+        <span class="badge b-azul">Última comida juntos</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Il Postino</span><span class="detail-val">Pasta italiana, menú familiar, ubicación centro histórico.</span></div>
+      <div class="detail-row"><span class="detail-label">Montecatini</span><span class="detail-val">Pizzería, comida rápida, múltiples opciones para niños.</span></div>
+      <div class="detail-row"><span class="detail-label">Timing</span><span class="detail-val">Salir de casa 12:30, llegar almuerzo 13:30–14:00, comer tranquilo 45 min, salida paso ~15:00.</span></div>
+      <div class="detail-row"><span class="detail-label">Pago</span><span class="detail-val">Dividir cuenta por familia o pagar todos juntos — lo que prefieran.</span></div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">💡 Consejo</div>
+      Reservar mesa con anticipación (viernes al llegar o domingo) para no esperar el lunes al salir.
+    </div>
+    <div class="costo-strip"><span>Almuerzo lunes (9 personas)</span><span>~$45.000–80.000 ARS (~$37.000–65.000 CLP)</span></div>
+  </div>
+
+  <div class="turno turno-regreso">Regreso — Salida ~15:00 hrs · Llegar con luz de día</div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>Regreso a Santiago — Lunes 29 de junio</h3>
+      <p>Neuquén 2852 → Ruta 7 → Paso Los Libertadores → Ruta 60 → Santiago · ~6–7 hrs total</p>
+      <div class="badge-row">
+        <span class="badge b-verde">Cruzar con luz de día ✓</span>
+        <span class="badge b-azul">Llegada ~21:00–22:00 hrs</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="detail-row"><span class="detail-label">Ruta</span><span class="detail-val">Mendoza (14:30) → Paso Los Libertadores (16:00–16:30, ~2 hrs) → Verificar frontera si hay aduanas lentes (puede extender 30–45 min) → Ruta 60 hasta Santiago (4–4.5 hrs más)</span></div>
+      <div class="detail-row"><span class="detail-label">Paradas</span><span class="detail-val">1 parada de gasolina y almacén en Ruta 60 (km 80–100 desde paso) · Baños, bebidas, snacks. Niños necesitarán dormir en el auto ~2–3 hrs antes de llegar.</span></div>
+      <div class="detail-row"><span class="detail-label">Combustible</span><span class="detail-val">Llenar tanques antes del paso (en Mendoza o en Uspallata es más caro). En Ruta 60 hay estaciones.+</span></div>
+      <div class="detail-row"><span class="detail-label">Documentación</span><span class="detail-val">Tener a mano: cédulas de todos, permiso de circulación, SOAP, seguros. Aduanas al regreso suele ser rápido (10–15 min por auto).</span></div>
+      <div class="detail-row"><span class="detail-label">Niños</span><span class="detail-val">Llevar almohadas, mantas, snacks para el viaje. Alguna película descargada en tablet. Preparar mentalmente que son 6+ hrs en auto.</span></div>
+    </div>
+    <div class="box box-importante">
+      <div class="box-title">⚠️ Llegada a Santiago</div>
+      <ul style="margin:8px 0 0;">
+        <li>Llegada estimada: <strong>21:00–22:00 hrs lunes</strong> (con luz de día en paso, sin atrasos)</li>
+        <li>Estacionar en casa, descargar autos, niños a dormir</li>
+        <li>Distribuir compras Mendoza (quesos, vinos, chocolates) entre familias</li>
+      </ul>
+    </div>
+    <div class="costo-strip"><span>Combustible regreso 2 autos</span><span>~$100.000–150.000 CLP</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
      BODA ENERO
 ══════════════════════════════════════════════ -->
 <div id="boda" class="section">
   <div class="day-header dh-rosa">
     <h2>Boda Enero en Mendoza — Venues y Documentación</h2>
-    <p>Reconocimiento durante el viaje 26–28 junio · Visitar cada venue en el momento indicado</p>
+    <p>Reconocimiento durante el viaje 26–29 junio · Visitar cada venue en el momento indicado</p>
   </div>
 
   <p style="font-size:13px;color:var(--gris);margin-bottom:20px;line-height:1.6;">
-    El viaje del 26–28 de junio es la oportunidad perfecta para visitar los venues de forma natural durante el itinerario. Ninguna visita requiere desvíos: cada iglesia y venue aparece en el camino de las actividades del fin de semana.
+    El viaje del 26–29 de junio es la oportunidad perfecta para visitar los venues de forma natural durante el itinerario. Ninguna visita requiere desvíos: cada iglesia y venue aparece en el camino de las actividades del fin de semana.
   </p>
 
   <div class="box box-importante" style="margin-bottom:20px;border-left:5px solid var(--rosa-osc);">
@@ -1687,11 +1803,12 @@
 ══════════════════════════════════════════════ -->
 <div id="costos" class="section">
   <div class="day-header dh-azul">
-    <h2>Resumen de Costos — 9 Personas, 3 Días</h2>
+    <h2>Resumen de Costos — 9 Personas, 4 Días (26–29 junio)</h2>
     <p>Estimados a junio 2026 · Confirmar precios al momento del viaje · Tipo de cambio referencial: 1 ARS ≈ 0.82 CLP</p>
   </div>
 
   <div class="card">
+    <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;color:var(--negro);">COSTOS TOTALES DEL GRUPO (9 personas)</h3>
     <table class="costos-table">
       <thead>
         <tr>
@@ -1701,29 +1818,71 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Peaje + Seguros RC Argentina (2 autos)</td><td>—</td><td>~$40.000–60.000</td></tr>
-        <tr><td>Almuerzo Uspallata (9 personas)</td><td>~$27.000–45.000</td><td>~$22.000–37.000</td></tr>
-        <tr><td>Supermercado total finde (carnes + desayunos + snacks)</td><td>~$80.000–110.000</td><td>~$66.000–90.000</td></tr>
-        <tr><td>Asado viernes en casa</td><td>Incluido en super</td><td>—</td></tr>
-        <tr><td>Termas Cacheuta (con promo 4x3, 9 personas)</td><td>~$108.000–132.000</td><td>~$88.000–108.000</td></tr>
-        <tr><td>Chocolatería Abuela Goye (9 personas)</td><td>~$27.000–54.000</td><td>~$22.000–44.000</td></tr>
-        <tr><td>Tour bodega Chacras de Coria (6 adultos)</td><td>~$60.000</td><td>~$49.000</td></tr>
+        <tr><td><strong>Hospedaje Casa Cedro</strong> (3 noches: 26, 27, 28 junio)</td><td>—</td><td><strong>CLP 350.086</strong></td></tr>
+        <tr><td>Seguro RC Argentina (2 autos, 4 días)</td><td>~$30.000–40.000</td><td>~$25.000–33.000</td></tr>
+        <tr><td>Seguro Viaje Personal (9 personas)</td><td>~$30.000–40.000</td><td>~$25.000–33.000</td></tr>
+        <tr><td>Peaje Paso Los Libertadores (ida y vuelta)</td><td>~$17.000</td><td>~$14.000</td></tr>
+        <tr style="background:rgba(175,238,238,0.15);"><td colspan="3" style="text-align:center;font-weight:600;padding:8px;">🥘 COMIDAS & ACTIVIDADES</td></tr>
+        <tr><td>Almuerzo Uspallata — viernes (9 personas)</td><td>~$27.000–45.000</td><td>~$22.000–37.000</td></tr>
+        <tr><td>Supermercado (desayunos, snacks, 1 asado sábado)</td><td>~$100.000–130.000</td><td>~$82.000–107.000</td></tr>
+        <tr><td>Termas Cacheuta — sábado (9 pax, promo 4x3)</td><td>~$108.000–132.000</td><td>~$88.000–108.000</td></tr>
+        <tr><td>Chocolatería Abuela Goye — sábado tarde</td><td>~$27.000–54.000</td><td>~$22.000–44.000</td></tr>
+        <tr><td>Tour bodega (Ruca Malén o Achaval Ferrer) — sábado tarde</td><td>~$60.000</td><td>~$49.000</td></tr>
         <tr><td>Cena La Marchigiana — sábado noche (9 pax + vino)</td><td>~$78.000–83.000</td><td>~$64.000–68.000</td></tr>
-        <tr><td>Café peatonal + Parque San Martín — domingo</td><td>~$28.000–42.000</td><td>~$23.000–34.000</td></tr>
-        <tr><td>Almuerzo domingo (Il Postino o Montecatini)</td><td>~$45.000–80.000</td><td>~$37.000–65.000</td></tr>
-        <tr><td>Combustible ida y vuelta (2 autos)</td><td>—</td><td>~$80.000–120.000</td></tr>
-        <tr class="total"><td><strong>TOTAL ESTIMADO GRUPO</strong></td><td>~$453.000–546.000 ARS</td><td><strong>~$491.000–675.000 CLP</strong></td></tr>
+        <tr><td>Café + Parque San Martín — domingo mañana</td><td>~$28.000–42.000</td><td>~$23.000–34.000</td></tr>
+        <tr><td>Almuerzo lunes (Il Postino o Montecatini) antes de partir</td><td>~$45.000–80.000</td><td>~$37.000–65.000</td></tr>
+        <tr style="background:rgba(175,238,238,0.15);"><td colspan="3" style="text-align:center;font-weight:600;padding:8px;">🚗 TRANSPORTE</td></tr>
+        <tr><td>Combustible ida y vuelta (2 autos, ~1.400 km)</td><td>—</td><td>~$100.000–150.000</td></tr>
+        <tr class="total"><td><strong>TOTAL ESTIMADO GRUPO</strong></td><td>~$500.000–627.000 ARS</td><td><strong>~$971.086–1.121.086 CLP</strong></td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="box box-amber" style="border-radius:10px;padding:14px 16px;background:var(--amber-clr);color:var(--amber-osc);margin-top:8px;">
-    <div class="box-title" style="color:var(--amber-osc);">⚠️ Nota importante</div>
-    <ul>
-      <li>Precios en ARS <strong>sujetos a inflación argentina</strong> — verificar siempre en la web oficial antes del viaje.</li>
-      <li>Llevar mínimo <strong>$200.000 CLP en pesos argentinos en efectivo</strong> para el grupo (además de tarjeta de débito internacional).</li>
-      <li>El tipo de cambio ARS/CLP puede variar significativamente entre ahora y junio.</li>
-      <li>Con la promo 4x3 de Termas y los asados en casa, el ahorro estimado es de <strong>~$80.000–120.000 ARS</strong> vs el plan sin ahorros.</li>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px;">
+    <div class="card" style="background:rgba(212,83,126,0.08);border-left:4px solid var(--rosa-osc);">
+      <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--rosa-osc);">👨‍👩‍👧 FAMILIA 1</h4>
+      <dl style="font-size:12px;line-height:1.8;">
+        <dt style="font-weight:600;color:var(--gris);">Por familia</dt>
+        <dd><strong style="color:var(--negro);">~$170.000–210.000 ARS</strong></dd>
+        <dd><strong style="color:var(--rosa-osc);">~CLP 323.700–364.400</strong></dd>
+      </dl>
+    </div>
+    <div class="card" style="background:rgba(139,69,19,0.08);border-left:4px solid #8B4513;">
+      <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:#8B4513;">👨‍👩‍👧 FAMILIA 2</h4>
+      <dl style="font-size:12px;line-height:1.8;">
+        <dt style="font-weight:600;color:var(--gris);">Por familia</dt>
+        <dd><strong style="color:var(--negro);">~$170.000–210.000 ARS</strong></dd>
+        <dd><strong style="color:#8B4513;">~CLP 323.700–364.400</strong></dd>
+      </dl>
+    </div>
+    <div class="card" style="background:rgba(101,67,33,0.08);border-left:4px solid #654321;">
+      <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:#654321;">👨‍👩‍👧 FAMILIA 3</h4>
+      <dl style="font-size:12px;line-height:1.8;">
+        <dt style="font-weight:600;color:var(--gris);">Por familia</dt>
+        <dd><strong style="color:var(--negro);">~$170.000–210.000 ARS</strong></dd>
+        <dd><strong style="color:#654321;">~CLP 323.700–364.400</strong></dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="box box-amber" style="border-radius:10px;padding:14px 16px;background:var(--amber-clr);color:var(--amber-osc);margin-top:16px;">
+    <div class="box-title" style="color:var(--amber-osc);">💰 DESGLOSE POR FAMILIA</div>
+    <ul style="font-size:12px;">
+      <li><strong>Hospedaje:</strong> CLP 350.086 ÷ 3 = <strong>~CLP 116.695 por familia</strong></li>
+      <li><strong>Otros costos (seguros, peajes, comidas, transporte):</strong> ~CLP 620.391–770.391 ÷ 3 = <strong>~CLP 207.000–257.000 por familia</strong></li>
+      <li><strong>TOTAL POR FAMILIA: ~CLP 323.700–373.700</strong></li>
+      <li><strong>Por persona (3 personas/familia):</strong> ~CLP 107.900–124.600</li>
+    </ul>
+  </div>
+
+  <div class="box box-tip" style="border-radius:10px;padding:14px 16px;margin-top:8px;">
+    <div class="box-title">💡 AHORRO RECOMENDADO</div>
+    <ul style="font-size:12px;">
+      <li>✅ Asado en supermercado (sábado en casa) — ahorra ~$50.000 ARS vs restaurante</li>
+      <li>✅ Promo 4x3 Termas Cacheuta — ahorra ~$25.000 ARS en entrada de adultos</li>
+      <li>✅ Llevar snacks y desayunos — ahorra ~$30.000 ARS en cafés diarios</li>
+      <li>✅ Llevar pesos argentinos desde Chile — mejor tasa de cambio vs ATM Argentina</li>
+      <li><strong>Ahorro total estimado: ~CLP 70.000–100.000 por familia</strong></li>
     </ul>
   </div>
 </div>
@@ -1952,10 +2111,10 @@
             <td>Hasta $100K USD + Repatriación</td>
             <td><a href="https://www.protegetuviaje.com/" target="_blank" class="btn-seguro">MAPFRE →</a></td>
           </tr>
-          <tr>
-            <td><strong>🔵 BCI Seguros</strong></td>
-            <td style="color:var(--verde-med);font-weight:bold;">~$20–35K CLP</td>
-            <td>Hasta $150K USD ⭐ (Mejor)</td>
+          <tr style="background:rgba(91,127,212,0.1);border:2px solid #5B7FD4;">
+            <td><strong>🔵 BCI Seguros ⭐ TOP RECOMENDADO</strong></td>
+            <td style="color:#5B7FD4;font-weight:bold;">CLP 32.146 (3 pax)</td>
+            <td>USD 30.000 accidentes + USD 30.000 enfermedades + Preexistente USD 5K + Telemedicina ✅</td>
             <td><a href="https://www.bciseguros.cl/nuestros_seguros/personas/seguro-de-viaje/" target="_blank" class="btn-seguro">BCI →</a></td>
           </tr>
           <tr>
@@ -1993,14 +2152,70 @@
     </div>
   </div>
 
-  <div class="box box-tip">
-    <div class="box-title">💡 AHORRO GARANTIZADO — Contraten ONLINE ANTES de viajar</div>
-    <p style="margin:8px 0;">Comprar seguro RC Argentina <strong>online en ComparaOnline o ProtegeTuViaje es 30% más barato</strong> que comprarlo en el paso fronterizo. La diferencia viene por: sin comisión, mejor tasa de cambio si pagan en pesos.</p>
-    <ul style="margin:8px 0 0;list-style:disc;margin-left:20px;font-size:13px;">
-      <li>Contraten con <strong>mínimo 48 horas antes</strong> de viajar</li>
-      <li>Lleven comprobante impreso O en el celular</li>
-      <li>Si no saben cuál elegir: MAPFRE RC + BCI Viaje (mejor relación precio/cobertura)</li>
+  <div class="box box-importante" style="border-left:5px solid #5B7FD4;margin-top:12px;">
+    <div class="box-title" style="color:#5B7FD4;">✅ RECOMENDACIÓN FINAL: CONTRATAR BCI AHORA</div>
+    <div style="margin:10px 0;font-size:13px;">
+      <strong>Precio verificado:</strong> CLP 32.146 por 3 personas (4 días)<br>
+      <strong>Para 9 personas (3 familias):</strong> CLP 96.438 total (~CLP 10.715 por persona)<br>
+      <br>
+      <strong>¿Por qué BCI vs otros?</strong>
+    </div>
+    <table style="font-size:12px;width:100%;margin-top:8px;border-collapse:collapse;">
+      <tr style="background:#f5f5f5;">
+        <td style="padding:6px;border:1px solid #ddd;"><strong>Cobertura</strong></td>
+        <td style="padding:6px;border:1px solid #ddd;"><strong>BCI ⭐</strong></td>
+        <td style="padding:6px;border:1px solid #ddd;">Santander</td>
+        <td style="padding:6px;border:1px solid #ddd;">Otros</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;border:1px solid #ddd;">Asistencia Médica</td>
+        <td style="padding:6px;border:1px solid #ddd;color:#0F9E5C;"><strong>USD 30K</strong></td>
+        <td style="padding:6px;border:1px solid #ddd;">USD 20K</td>
+        <td style="padding:6px;border:1px solid #ddd;">USD 20K</td>
+      </tr>
+      <tr style="background:#f9f9f9;">
+        <td style="padding:6px;border:1px solid #ddd;">Enfermedades (no preexistentes)</td>
+        <td style="padding:6px;border:1px solid #ddd;color:#0F9E5C;"><strong>USD 30K</strong></td>
+        <td style="padding:6px;border:1px solid #ddd;">USD 20K</td>
+        <td style="padding:6px;border:1px solid #ddd;">USD 20K</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;border:1px solid #ddd;">Preexistentes</td>
+        <td style="padding:6px;border:1px solid #ddd;color:#0F9E5C;"><strong>USD 5K ✅</strong></td>
+        <td style="padding:6px;border:1px solid #ddd;">❌ No</td>
+        <td style="padding:6px;border:1px solid #ddd;">❌ No</td>
+      </tr>
+      <tr style="background:#f9f9f9;">
+        <td style="padding:6px;border:1px solid #ddd;">Telemedicina</td>
+        <td style="padding:6px;border:1px solid #ddd;color:#0F9E5C;"><strong>✅ Incluida</strong></td>
+        <td style="padding:6px;border:1px solid #ddd;">❌ No</td>
+        <td style="padding:6px;border:1px solid #ddd;">❌ No</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;border:1px solid #ddd;">Deporte recreativo</td>
+        <td style="padding:6px;border:1px solid #ddd;color:#0F9E5C;"><strong>USD 10K ✅</strong></td>
+        <td style="padding:6px;border:1px solid #ddd;">❌ No</td>
+        <td style="padding:6px;border:1px solid #ddd;">Algunos</td>
+      </tr>
+      <tr style="background:#f9f9f9;">
+        <td style="padding:6px;border:1px solid #ddd;"><strong>Precio (3 pax)</strong></td>
+        <td style="padding:6px;border:1px solid #ddd;color:#0F9E5C;"><strong>CLP 32.146</strong></td>
+        <td style="padding:6px;border:1px solid #ddd;">~CLP 35-50K</td>
+        <td style="padding:6px;border:1px solid #ddd;">Variable</td>
+      </tr>
+    </table>
+    <ul style="margin:10px 0 0;list-style:disc;margin-left:20px;font-size:12px;">
+      <li><strong>Contratar YA</strong> en https://www.bciseguros.cl/nuestros_seguros/personas/seguro-de-viaje/</li>
+      <li>Repetir 2 veces más para las 3 familias (total 9 personas = CLP 96.438)</li>
+      <li>Descargar 3 comprobantes PDF (uno por familia) antes del viaje</li>
+      <li>Verificar que especifique "Argentina MERCOSUR" en cobertura</li>
+      <li>Compartir números emergencia BCI con todas las familias</li>
     </ul>
+  </div>
+
+  <div class="box box-tip">
+    <div class="box-title">💡 AHORRO GARANTIZADO</div>
+    <p style="margin:8px 0;">Contratar seguros online ANTES del viaje es 30% más barato que en el paso fronterizo. <strong>Mínimo 48 horas antes de viajar.</strong></p>
   </div>
 
   <style>
